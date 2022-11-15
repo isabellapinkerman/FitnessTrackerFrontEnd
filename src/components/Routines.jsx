@@ -5,7 +5,7 @@ const Routines = ({ allRoutines }) => {
   return (
     <>
       <div>{`This is your Routines component`}</div>
-      <div>
+      <div><div className="routines">
         {allRoutines.length ? (
           allRoutines.map((routine) => {
             return (
@@ -16,8 +16,8 @@ const Routines = ({ allRoutines }) => {
             );
           })
         ) : (
-          <div>Loading Routines</div>
-        )}
+          <div>This routine has no activity.</div>
+        )}</div>
       </div>
     </>
   );

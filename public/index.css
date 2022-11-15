@@ -19,13 +19,26 @@ body {
   padding: 0px 50px;
 }
 
-.routine {
+.routines{
+  border: 3px solid black;
+  width: fit-content;
+  background-color: lightblue;
+
+
+}
+.routineBox {
   border: 1px solid purple;
   background-color: grey;
-  padding: 5px;
-  margin: 5px;
-  width: fit-content;
+  padding: 10px;
+  margin: 30px 30px;
   border-radius: 10px;
+}
+
+.routineInfo {
+  border: 1px solid blue;
+  background-color: lightskyblue;
+  padding: 10px;
+  margin: 10px;
 }
 
 .activity{

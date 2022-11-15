@@ -1,7 +1,15 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
+function handleClick(){
+  localStorage.removeItem("token")
+  navigate('/')
+  location.reload()
+}
+
   return (
     <>
       <div id="Navbar">
@@ -13,18 +21,26 @@ const Navbar = () => {
           <Link to={"/routines"}>
             <button className="navButton">Routines</button>
           </Link>
-          <Link to={"/myRoutines"}>
-            <button className="navButton">My Routines</button>
-          </Link>
           <Link to={"/activities"}>
             <button className="navButton">Activities</button>
           </Link>
-          <Link to={"/login"}>
+          <div>
+          {!localStorage.getItem('token') ? (
+            <div><Link to={"/login"}>
             <button className="navButton">Login</button>
           </Link>
           <Link to={"/register"}>
             <button className="navButton">Register</button>
+          </Link></div>
+          ) : (
+            <div>
+              <Link to={"/myRoutines"}>
+            <button className="navButton">My Routines</button>
           </Link>
+                <button onClick={handleClick}>LogOut</button>
+              </div>
+          )}
+          </div>
         </div>
       </div>
       <Outlet />

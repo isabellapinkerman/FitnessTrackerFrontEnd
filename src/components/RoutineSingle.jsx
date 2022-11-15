@@ -31,7 +31,7 @@ const RoutineSingle = (props) => {
               );
             })
           ) : (
-            <div>Loading Routines</div>
+            <div className="noActivity">This routine has no activity.</div>
           )}
         </div>
       </div>

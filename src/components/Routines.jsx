@@ -16,7 +16,7 @@ const Routines = ({ allRoutines }) => {
             );
           })
         ) : (
-          <div>This routine has no activity.</div>
+          <div className="noActivity">Loading Routines</div>
         )}</div>
       </div>
     </>

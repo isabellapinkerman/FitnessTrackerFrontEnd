@@ -62,7 +62,7 @@ export async function getPublicUserRoutines(username, token) {
   const result = await response.json();
   return result;
 }
-//^^^ not checked
+
 
 export async function getAllActivities() {
   const options = {

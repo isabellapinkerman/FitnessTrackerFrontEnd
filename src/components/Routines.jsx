@@ -1,5 +1,5 @@
 import React from "react";
-import RoutineSingle from "./RoutineSingle";
+import Routine from "./Routine";
 
 const Routines = ({ allRoutines }) => {
   return (
@@ -9,14 +9,14 @@ const Routines = ({ allRoutines }) => {
         {allRoutines.length ? (
           allRoutines.map((routine) => {
             return (
-              <RoutineSingle
+              <Routine
                 key={`routine-${routine.id}`}
                 routine={ routine }
               />
             );
           })
         ) : (
-          <div className="noActivity">Loading Routines</div>
+          <div>Loading Routines</div>
         )}</div>
       </div>
     </>

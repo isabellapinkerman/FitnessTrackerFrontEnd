@@ -1,6 +1,6 @@
 import React from "react";
 
-const RoutineSingle = (props) => {
+const Routine = (props) => {
   const routine = props.routine;
 
   return (
@@ -8,9 +8,9 @@ const RoutineSingle = (props) => {
       <div className="routineBox">
         <div className="routineInfo">
         <div>Routine Info</div>
-          <div>{routine.id}</div>
-          <div>{routine.name}</div>
-          <div>{routine.goal}</div>
+          <div>{`Created By: ${routine.creatorName}`}</div>
+          <div>{`Name: ${routine.name}`}</div>
+          <div>{`Goal: ${routine.goal}`}</div>
         </div>
 
         <div className="activities">
@@ -39,4 +39,4 @@ const RoutineSingle = (props) => {
   );
 };
 
-export default RoutineSingle;
+export default Routine;

@@ -14,7 +14,6 @@ const Activities = ({ activities, token }) => {
           <></>
         )}
       </div>
-        <h1>Activities</h1>
       <div>
         <div className="routines">
           {activities.length ? (

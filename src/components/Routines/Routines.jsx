@@ -1,10 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Routine from "./Routine";
 
-const Routines = ({ routines }) => {
+const Routines = ({ routines, token }) => {
 
   return (
     <>
+         <div>
+        {token ? (
+          <Link to={"/createRoutine"}>
+            <button>Create Routine</button>
+          </Link>
+        ) : (
+          <></>
+        )}
+      </div>
+
       <div className="routines">
         {routines.length ? (
           routines.map((routine) => {

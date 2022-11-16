@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Routines from "./Routines";
 
-const RoutinesSearch = ({ allRoutines }) => {
+const RoutinesSearch = ({ allRoutines, token }) => {
   const [routines, setRoutines] = useState(allRoutines);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const RoutinesSearch = ({ allRoutines }) => {
         <label htmlFor="search"> Search: </label>
         <input type="text" onChange={handleChange} />
       </form>
-      <Routines routines={routines} />
+      <Routines routines={routines} token={token} />
     </>
   );
 };

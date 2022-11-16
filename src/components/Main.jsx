@@ -76,7 +76,7 @@ const Main = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="routines"
-          element={<RoutinesSearch allRoutines={allRoutines} />}
+          element={<RoutinesSearch allRoutines={allRoutines} token={token} />}
         />
         <Route
           path="myRoutines"

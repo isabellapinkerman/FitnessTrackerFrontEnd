@@ -11,8 +11,8 @@ const Routine = (props) => {
           <div>{`Created By: ${routine.creatorName}`}</div>
           <div>{`Name: ${routine.name}`}</div>
           <div>{`Goal: ${routine.goal}`}</div>
-        </div>
-
+          </div>
+          <h1>Routines</h1>
         <div className="activities">
           {routine.activities.length ? (
             routine.activities.map((activity) => {

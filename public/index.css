@@ -23,6 +23,10 @@ body {
   padding: 0px 50px;
 }
 
+#Footer {
+  background-color: rgb(91,92,100);
+}
+
 .fitnessTracker{
   color: black;
   font-family: Copperplate;
@@ -74,9 +78,12 @@ body {
   opacity: .8;
 }
 
-.button{
-  background-color: aliceblue;
+.button,
+Button{
+  background-color: rgb(188,183,184);
   border-radius: 5px;
+  margin: 2px;
+  opacity: .8;
 }
 
 .message{

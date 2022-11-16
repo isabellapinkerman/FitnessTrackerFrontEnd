@@ -26,3 +26,4 @@ export { default as MyRoutine } from "./MyRoutine";
 export { default as MyRoutines } from "./MyRoutines";
 export { default as Navbar } from "./Navbar";
 export { default as Register } from "./Register";
+export { default as Footer } from "./Footer"

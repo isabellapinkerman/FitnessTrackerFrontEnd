@@ -38,7 +38,7 @@ const [message, setMessage] = useState('Please enter username and password')
             <input type="text" placeholder="Enter username here" required></input>
             <label htmlFor="password">Password:</label>
             <input type="text" placeholder="Enter password here" required></input>
-            <button type="submit">
+            <button type="submit" className="button">
                 Login
             </button>
             </form>

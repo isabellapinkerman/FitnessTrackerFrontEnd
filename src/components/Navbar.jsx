@@ -10,6 +10,10 @@ function handleClick(){
   location.reload()
 }
 
+// function handleClickTwo(){
+//   location.reload()
+// }
+
   return (
     <>
       <div id="Navbar">

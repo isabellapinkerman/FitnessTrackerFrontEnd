@@ -13,7 +13,7 @@ const Routine = (props) => {
           <div>{`Goal: ${routine.goal}`}</div>
         </div>
 
-        {/* <div className="activities">
+        <div className="activities">
           {routine.activities.length ? (
             routine.activities.map((activity) => {
               return (
@@ -22,7 +22,6 @@ const Routine = (props) => {
                   key={`activity-${activity.id}`}
                   routine={routine}
                 > <div>Activity</div>
-                  <div>{`ID: ${activity.id}`}</div>
                   <div>{`Name: ${activity.name}`}</div>
                   <div>{`Description: ${activity.description}`}</div>
                   <div>{`Duration: ${activity.duration}`}</div>
@@ -33,7 +32,7 @@ const Routine = (props) => {
           ) : (
             <div className="noActivity">This routine has no activity.</div>
           )}
-        </div> */}
+        </div>
       </div>
     </>
   );

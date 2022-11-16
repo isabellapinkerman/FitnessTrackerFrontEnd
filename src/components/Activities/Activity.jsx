@@ -11,7 +11,6 @@ const Activity = (props) => {
           <div>{`Name: ${activity.name}`}</div>
           <div>{`Description: ${activity.description}`}</div>
         </div>
-
       </div>
     </>
   );

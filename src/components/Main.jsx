@@ -24,7 +24,6 @@ import {
 } from "./";
 
 const Main = () => {
-
   //-----------GET USER DATA------------------------------
 
   const token = localStorage.getItem("token");
@@ -86,12 +85,17 @@ const Main = () => {
         />
         <Route
           path="activities"
-          element={<ActivitiesSearch allActivities={allActivities} />}
+          element={
+            <ActivitiesSearch allActivities={allActivities} token={token} />
+          }
         />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="createActivity" element={<CreateActivity token={token}/>} />
-        <Route path="createRoutine" element={<CreateRoutine  />} />
+        <Route
+          path="createActivity"
+          element={<CreateActivity token={token} />}
+        />
+        <Route path="createRoutine" element={<CreateRoutine />} />
       </Route>
     )
   );

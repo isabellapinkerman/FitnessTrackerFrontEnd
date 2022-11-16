@@ -29,7 +29,6 @@ const RoutinesSearch = ({ allRoutines }) => {
 
   return (
     <>
-      <div>{`This is your Routines component`}</div>
       <form>
         <label htmlFor="search"> Search: </label>
         <input type="text" onChange={handleChange} />

@@ -1,23 +1,33 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Activity from "./Activity";
 
-const Activities = ({ activities }) => {
+const Activities = ({ activities, token }) => {
   return (
     <>
-      <div>{`This is your Activities component`}</div>
-      <div><div className="routines">
-        {activities.length ? (
-          activities.map((activity) => {
-            return (
-              <Activity
-                key={`activity-${activity.id}`}
-                activity={ activity }
-              />
-            );
-          })
+      <div>
+        {token ? (
+          <Link to={"/createActivity"}>
+            <button>Create Activity</button>
+          </Link>
         ) : (
-          <div>Loading Activities</div>
-        )}</div>
+          <></>
+        )}
+      </div>
+
+      <div>{`This is your Activities component`}</div>
+      <div>
+        <div className="routines">
+          {activities.length ? (
+            activities.map((activity) => {
+              return (
+                <Activity key={`activity-${activity.id}`} activity={activity} />
+              );
+            })
+          ) : (
+            <div>Loading Activities</div>
+          )}
+        </div>
       </div>
     </>
   );

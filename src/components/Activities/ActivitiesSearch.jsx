@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Activities from "./Activities";
 
-const ActivitiesSearch = ({ allActivities }) => {
+const ActivitiesSearch = ({ allActivities, token }) => {
   const [activities, setActivities] = useState(allActivities);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ActivitiesSearch = ({ allActivities }) => {
       });
       setActivities(filteredActivities);
     } else {
-        setActivities(allActivities);
+      setActivities(allActivities);
     }
   };
 
@@ -33,7 +33,7 @@ const ActivitiesSearch = ({ allActivities }) => {
         <label htmlFor="search"> Search: </label>
         <input type="text" onChange={handleChange} />
       </form>
-      <Activities activities={activities} />
+      <Activities activities={activities} token={token} />
     </>
   );
 };

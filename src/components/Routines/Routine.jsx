@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Routine = (props) => {
-  const routine = props.routine;
-
+const Routine = ({routine}) => {
+  
   return (
     <>
       <div className="routineBox">

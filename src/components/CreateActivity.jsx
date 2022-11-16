@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createActivity } from "../api";
 
 const CreateActivity = ({ token, allActivities, setAllActivities }) => {
   const [message, setMessage] = useState(
     "Please enter activity name and description"
   );
-  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();

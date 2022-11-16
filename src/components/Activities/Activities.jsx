@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Activity from "./Activity";
 
-const Activities = ({ activities, setAllActivities, token }) => {
+const Activities = ({ activities, token }) => {
   return (
     <>
       <div>

@@ -1,28 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider,
   Route,
+  RouterProvider,
 } from "react-router-dom";
 import {
-  Navbar,
-  MyRoutines,
-  Login,
-  Register,
-  Home,
+  getAllActivities,
+  getAllPublicRoutines,
+  getPublicUserRoutines,
+  getUserData,
+} from "../api";
+import {
+  ActivitiesSearch,
   CreateActivity,
   CreateRoutine,
+  Home,
+  Login,
+  MyRoutines,
+  Navbar,
+  Register,
   RoutinesSearch,
-  ActivitiesSearch,
 } from "./";
-import {
-  getAllPublicRoutines,
-  getAllActivities,
-  getPublicUserRoutines,
-} from "../api";
 
 const Main = () => {
+
+  //-----------GET USER DATA------------------------------
+
+  const token = localStorage.getItem("token");
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    async function fetchUserData() {
+      const userData = await getUserData(token);
+      setUser(userData);
+    }
+    fetchUserData();
+  }, []);
+
   //-----------GET ALL ROUTINES------------------------------
   const [allRoutines, setAllRoutines] = useState([]);
   useEffect(() => {
@@ -47,7 +62,7 @@ const Main = () => {
   const [allPublicRoutinesByUser, setAllPublicRoutinesByUser] = useState([]);
   useEffect(() => {
     async function fetchAllPublicRoutinesByUser() {
-      const publicRoutinesByUser = await getPublicUserRoutines();
+      const publicRoutinesByUser = await getPublicUserRoutines(user, token);
       setAllPublicRoutinesByUser(publicRoutinesByUser);
     }
     fetchAllPublicRoutinesByUser();
@@ -75,8 +90,8 @@ const Main = () => {
         />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="createActivity" element={<CreateActivity />} />
-        <Route path="createRoutine" element={<CreateRoutine />} />
+        <Route path="createActivity" element={<CreateActivity token={token}/>} />
+        <Route path="createRoutine" element={<CreateRoutine  />} />
       </Route>
     )
   );

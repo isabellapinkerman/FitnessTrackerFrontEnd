@@ -42,7 +42,7 @@ async function handleSubmit(event){
             <input type="text" placeholder="Enter username here" required></input>
             <label htmlFor="password">Password:</label>
             <input type="text" placeholder="Enter password here" required></input>
-            <button type="submit">
+            <button type="submit" className="button">
                 Register
             </button>
         </form>

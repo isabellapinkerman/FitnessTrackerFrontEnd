@@ -21,6 +21,7 @@ import {
   Navbar,
   Register,
   RoutinesSearch,
+  Footer
 } from "./";
 
 const Main = () => {

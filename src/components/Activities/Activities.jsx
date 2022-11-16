@@ -14,8 +14,7 @@ const Activities = ({ activities, token }) => {
           <></>
         )}
       </div>
-
-      <div>{`This is your Activities component`}</div>
+        <h1>Activities</h1>
       <div>
         <div className="routines">
           {activities.length ? (

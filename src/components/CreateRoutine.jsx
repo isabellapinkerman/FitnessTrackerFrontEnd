@@ -41,7 +41,7 @@ const navigate = useNavigate()
             <option>Public</option>
             <option>Private</option>
         </select>
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
       <button onClick={redirect}className="button">Back</button>
     </>

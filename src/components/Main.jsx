@@ -88,6 +88,7 @@ const Main = () => {
           element={
             <MyRoutinesSearch
               allPublicRoutinesByUser={allPublicRoutinesByUser}
+              setAllPublicRoutinesByUser={setAllPublicRoutinesByUser}
               token={token}
               user={user}
             />

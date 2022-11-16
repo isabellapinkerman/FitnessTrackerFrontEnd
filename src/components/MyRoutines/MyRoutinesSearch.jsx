@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MyRoutines from "./MyRoutines";
 
-const MyRoutinesSearch = ({ allPublicRoutinesByUser, token }) => {
+const MyRoutinesSearch = ({ allPublicRoutinesByUser, setAllPublicRoutinesByUser,token }) => {
 
     console.log(allPublicRoutinesByUser)
     console.log(token)
   const [myRoutines, setMyRoutines] = useState(allPublicRoutinesByUser);
 
   useEffect(() => {
-    setMyRoutines(allPublicRoutinesByUser);
+    setAllPublicRoutinesByUser(allPublicRoutinesByUser);
   }, [allPublicRoutinesByUser]);
 
   const handleChange = (input) => {

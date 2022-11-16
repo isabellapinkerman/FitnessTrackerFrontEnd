@@ -1,4 +1,6 @@
 export { default as Activities } from "./Activities";
+export { default as ActivitiesSearch } from "./ActivitiesSearch";
+
 export { default as Activity } from "./Activity";
 export { default as CreateActivity } from "./CreateActivity";
 export { default as CreateRoutine } from "./CreateRoutine";

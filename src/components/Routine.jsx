@@ -13,7 +13,7 @@ const Routine = (props) => {
           <div>{`Goal: ${routine.goal}`}</div>
         </div>
 
-        <div className="activities">
+        {/* <div className="activities">
           {routine.activities.length ? (
             routine.activities.map((activity) => {
               return (
@@ -33,7 +33,7 @@ const Routine = (props) => {
           ) : (
             <div className="noActivity">This routine has no activity.</div>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );

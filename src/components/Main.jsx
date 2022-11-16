@@ -7,13 +7,12 @@ import {
 } from "react-router-dom";
 import {
   Navbar,
-  Routines,
   MyRoutines,
-  Activities,
   Login,
   Register,
   Home,
   CreateActivity,
+  CreateRoutine,
   RoutinesSearch,
   ActivitiesSearch,
 } from "./";
@@ -77,6 +76,7 @@ const Main = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="createActivity" element={<CreateActivity />} />
+        <Route path="createRoutine" element={<CreateRoutine />} />
       </Route>
     )
   );

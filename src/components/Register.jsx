@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {register} from '../api';
 import {useNavigate} from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate()
-    // let message = "please register before logging in"
+    const [message, setMessage] = useState('Please register username and password')
 
 async function handleSubmit(event){
     try {
         event.preventDefault();
         const username = event.target[0].value;
         const password = event.target[1].value;
+        if(password.length < 8){
+            setMessage('Password is less than 8 characters') 
+            return
+          }
         const registerUser= await register(username, password);
         const token = registerUser.token
         if(token){
@@ -18,8 +22,8 @@ async function handleSubmit(event){
             event.target[0].value = null
             event.target[1].value = null
             navigate('/login')
-        }else{
-            // message = "failed to register, username is taken"
+        }else{ 
+            setMessage('Username already exists')
             console.log('failed')
         }
         localStorage.removeItem("token")
@@ -41,7 +45,7 @@ async function handleSubmit(event){
                 Register
             </button>
         </form>
-        {/* <div>{`${message}`}</div> */}
+        <div className="registerMessage">{message}</div>
         </div>
         </>
     )

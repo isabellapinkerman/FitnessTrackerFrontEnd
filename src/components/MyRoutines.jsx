@@ -7,6 +7,7 @@ const MyRoutines = ({ allPublicRoutinesByUser }) => {
     <>
       {/* <CreateRoutine/> */}
       <Link to={"/createActivity"}><button>Create Activity</button></Link>
+      <Link to={"/createRoutine"}><button>Create Routine</button></Link>
       {/* <CreateActivity/> */}
       <div>
         <div className="routines">

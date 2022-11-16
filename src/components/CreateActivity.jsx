@@ -1,7 +1,10 @@
 import React from "react";
+import {useNavigate } from "react-router-dom";
 import { createActivity } from "../api";
 
 const CreateActivity = () => {
+  const navigate = useNavigate()
+
   async function handleSubmit(event) {
     const token = localStorage.getItem("token");
     const name = event.target[0].value;
@@ -17,6 +20,11 @@ const CreateActivity = () => {
     location.reload()
   }
 
+  function redirect(){
+    let path = '/myRoutines'
+    navigate(path)
+  }
+
   return (
     <>
       <form className="registerForm" onSubmit={handleSubmit}>
@@ -26,6 +34,7 @@ const CreateActivity = () => {
         <input type="text" placeholder="Enter description" required></input>
         <button type="submit">Submit</button>
       </form>
+      <button onClick={redirect}className="button">Back</button>
     </>
   );
 };

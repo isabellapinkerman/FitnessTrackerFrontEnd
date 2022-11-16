@@ -78,7 +78,7 @@ const Main = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="routines"
-          element={<RoutinesSearch allRoutines={allRoutines} token={token} />}
+          element={<RoutinesSearch allRoutines={allRoutines}  token={token} />}
         />
         <Route
           path="myRoutines"
@@ -91,7 +91,6 @@ const Main = () => {
           element={
             <ActivitiesSearch
               allActivities={allActivities}
-              setAllActivities={setAllActivities}
               token={token}
             />
           }
@@ -100,9 +99,9 @@ const Main = () => {
         <Route path="register" element={<Register />} />
         <Route
           path="createActivity"
-          element={<CreateActivity token={token} allActivities ={allActivities} setAllActivities={setAllActivities}/>}
+          element={<CreateActivity token={token} allActivities={allActivities} setAllActivities={setAllActivities}/>}
         />
-        <Route path="createRoutine" element={<CreateRoutine />} />
+        <Route path="createRoutine" element={<CreateRoutine token={token} setAllRoutines={setAllRoutines} allRoutines={allRoutines}/>} />
       </Route>
     )
   );

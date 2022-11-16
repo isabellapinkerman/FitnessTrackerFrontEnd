@@ -1,13 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { createRoutine } from "../api";
-import { Link, useNavigate } from "react-router-dom";
 
-const CreateRoutine = () => {
-  const navigate = useNavigate();
+const CreateRoutine = ({allRoutines, setAllRoutines, token}) => {
+
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const token = localStorage.getItem("token");
     const name = event.target[0].value;
     const goal = event.target[1].value;
     let isPublic = event.target[2].value;
@@ -22,15 +21,11 @@ const CreateRoutine = () => {
     if (createdRoutine) {
       event.target[0].value = null;
       event.target[1].value = null;
+      setAllRoutines([...allRoutines, createdRoutine]);
     }
 
     console.log(createdRoutine, "this is new activity");
   }
-
-  // function redirect() {
-  //   let path = "/routines";
-  //   navigate(path);
-  // }
 
   return (
     <>

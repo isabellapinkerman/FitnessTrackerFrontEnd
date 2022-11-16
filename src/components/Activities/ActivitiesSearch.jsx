@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Activities from "./Activities";
 
-const ActivitiesSearch = ({ allActivities, setAllActivities, token }) => {
+const ActivitiesSearch = ({ allActivities, token }) => {
   const [activities, setActivities] = useState(allActivities);
 
   useEffect(() => {
@@ -35,10 +35,10 @@ const ActivitiesSearch = ({ allActivities, setAllActivities, token }) => {
         <label htmlFor="search"> Search: </label>
         <input type="text" onChange={handleChange} />
       </form>
-    </div>
-      <Activities activities={activities} token={token} setAllActivities={setAllActivities}/>
-   </div> 
-   </>
+      <Activities activities={activities} token={token} />
+      </div>
+      </div>
+    </>
   );
 };
 

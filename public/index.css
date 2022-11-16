@@ -39,29 +39,28 @@ body {
   width: fit-content;
 }
 .routineBox {
-  border: 1px solid purple;
+  border: 1px solid rgb(76,80,82);
   background-color: grey;
   padding: 10px;
   margin: 30px 30px;
-  border-radius: 10px;
 }
 
 .routineInfo {
-  border: 1px solid blue;
-  background-color: lightskyblue;
+  border: 1px solid rgb(91,100,99);
+  background-color: rgba(176, 180, 180, 0.598);
   padding: 10px;
   margin: 10px;
 }
 
 .activity{
-  border: 1px solid green;
+  border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
   margin: 10px;
 }
 
 .noActivity{
-  border: 1px solid green;
+  border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
   margin: 10px;
@@ -112,4 +111,14 @@ Button{
   text-align: center;
   font-family: Copperplate;
   font-size: 25px;
+}
+
+.searchBar{
+margin: 5px;
+padding: 5px;
+}
+
+.activityPage{
+  display: flex;
+  flex-direction: row;
 }

@@ -8,7 +8,7 @@ const Activities = ({ activities, setAllActivities, token }) => {
       <div>
         {token ? (
           <Link to={"/createActivity"}>
-            <button>Create Activity</button>
+            <button className="createActivity">Create Activity</button>
           </Link>
         ) : (
           <></>

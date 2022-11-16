@@ -16,7 +16,7 @@ const Routines = ({ routines, token }) => {
           <></>
         )}
       </div>
-
+<h1>Routines</h1>
       <div className="routines">
         {routines.length ? (
           routines.map((routine) => {

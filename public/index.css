@@ -3,7 +3,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-color: rgba(122, 125, 123, 0.852);
+  background-color: rgb(188,183,184);
 }
 
 #Navbar {
@@ -11,10 +11,12 @@ body {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  max-height: 10%;
-  min-height: 40px;
+  max-height: 20%;
+  height: 100px;
+  min-height: 50px;
   /* background-color: darkblue; */
-  background-image: url(https://images.pexels.com/photos/841135/pexels-photo-841135.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-image: url(https://t3.ftcdn.net/jpg/03/10/03/80/240_F_310038000_9fWHEsZ6CfOH9XkwVdQceCEWC7j1SeIS.jpg);
+  /* background-image: url(https://images.pexels.com/photos/841135/pexels-photo-841135.jpeg?auto=compress&cs=tinysrgb&w=600); */
   background-size: cover;
   color: white;
   align-items: center;
@@ -24,17 +26,13 @@ body {
 .fitnessTracker{
   color: black;
   font-family: Copperplate;
-  font-size: 30px;
+  font-size: 40px;
   -webkit-text-stroke-width: .8px;
   -webkit-text-fill-color: white;
 }
 
 .routines{
-  border: 3px solid black;
   width: fit-content;
-  background-color: lightblue;
-
-
 }
 .routineBox {
   border: 1px solid purple;
@@ -70,7 +68,7 @@ body {
 }
 
 .navButton{
-  background-color: aliceblue;
+  background-color: rgb(188,183,184);
   border-radius: 5px;
   margin: 2px;
   opacity: .8;

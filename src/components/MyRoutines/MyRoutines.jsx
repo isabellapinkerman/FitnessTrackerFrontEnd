@@ -1,17 +1,17 @@
 import React from "react";
 import MyRoutine from "./MyRoutine";
 
-const MyRoutines = ({ allPublicRoutinesByUser }) => {
+const MyRoutines = ({ myRoutines, token }) => {
   return (
     <>
       <div>
         <div className="routines">
-          {allPublicRoutinesByUser.length ? (
-            allPublicRoutinesByUser.map((myRoutine) => {
+          {myRoutines.length ? (
+            myRoutines.map((myRoutine) => {
               return (
                 <MyRoutine
                   key={`myRoutine-${myRoutine.id}`}
-                  myRoutine={myRoutine}
+                  myRoutine={myRoutine} token={token}
                 />
               );
             })

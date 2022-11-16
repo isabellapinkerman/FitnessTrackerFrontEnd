@@ -14,18 +14,16 @@ const Activities = ({ activities, token }) => {
           <></>
         )}
       </div>
-      <div>
-        <div className="routines">
-          {activities.length ? (
-            activities.map((activity) => {
-              return (
-                <Activity key={`activity-${activity.id}`} activity={activity} />
-              );
-            })
-          ) : (
-            <div>Loading Activities</div>
-          )}
-        </div>
+      <div className="routines">
+        {activities.length ? (
+          activities.map((activity) => {
+            return (
+              <Activity key={`activity-${activity.id}`} activity={activity} />
+            );
+          })
+        ) : (
+          <div>Loading Activities</div>
+        )}
       </div>
     </>
   );

@@ -8,12 +8,7 @@ const RoutinesSearch = ({ allRoutines, token }) => {
     setRoutines(allRoutines);
   }, [allRoutines]);
 
-  const handleChange = (input) => {
-    input.preventDefault();
-    searchRoutines(input.target.value);
-  };
-
-  const searchRoutines = (searchValue) => {
+  function searchRoutines(searchValue) {
     if (searchValue !== "") {
       const filteredRoutines = allRoutines.filter((routine) => {
         return Object.values(routine)
@@ -25,15 +20,20 @@ const RoutinesSearch = ({ allRoutines, token }) => {
     } else {
       setRoutines(allRoutines);
     }
+  }
+
+  const handleChange = (input) => {
+    input.preventDefault();
+    searchRoutines(input.target.value);
   };
 
   return (
     <>
-    <div className="searchBar">
-      <form>
-        <label htmlFor="search"> Search: </label>
-        <input type="text" onChange={handleChange} />
-      </form>
+      <div className="searchBar">
+        <form>
+          <label htmlFor="search"> Search: </label>
+          <input type="text" onChange={handleChange} />
+        </form>
       </div>
       <Routines routines={routines} token={token} />
     </>

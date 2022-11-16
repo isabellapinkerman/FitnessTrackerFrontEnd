@@ -8,12 +8,7 @@ const ActivitiesSearch = ({ allActivities, token }) => {
     setActivities(allActivities);
   }, [allActivities]);
 
-  const handleChange = (input) => {
-    input.preventDefault();
-    searchActivities(input.target.value);
-  };
-
-  const searchActivities = (searchValue) => {
+  function searchActivities(searchValue) {
     if (searchValue !== "") {
       const filteredActivities = allActivities.filter((activity) => {
         return Object.values(activity)
@@ -25,18 +20,23 @@ const ActivitiesSearch = ({ allActivities, token }) => {
     } else {
       setActivities(allActivities);
     }
+  }
+
+  const handleChange = (input) => {
+    input.preventDefault();
+    searchActivities(input.target.value);
   };
 
   return (
     <>
-    <div className="activityPage">
-    <div className="searchBar">
-      <form>
-        <label htmlFor="search"> Search: </label>
-        <input type="text" onChange={handleChange} />
-      </form>
-      <Activities activities={activities} token={token} />
-      </div>
+      <div className="activityPage">
+        <div className="searchBar">
+          <form>
+            <label htmlFor="search"> Search: </label>
+            <input type="text" onChange={handleChange} />
+          </form>
+          <Activities activities={activities} token={token} />
+        </div>
       </div>
     </>
   );

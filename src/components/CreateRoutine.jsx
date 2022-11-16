@@ -20,7 +20,7 @@ const CreateRoutine = ({ allRoutines, setAllRoutines, token }) => {
     }
     const createdRoutine = await createRoutine(token, name, goal, isPublic);
 
-    if (createdRoutine) {
+    if (!createdRoutine.error) {
       event.target[0].value = null;
       event.target[1].value = null;
       setMessage(`You've successfully created a new routine`);
@@ -28,6 +28,8 @@ const CreateRoutine = ({ allRoutines, setAllRoutines, token }) => {
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
+
+    console.log(createdRoutine)
   }
 
   return (

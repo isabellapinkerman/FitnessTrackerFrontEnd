@@ -1,27 +1,25 @@
 import React from "react";
 
-const MyRoutine = (props) => {
-  const myRoutine = props.myRoutine;
+const MyRoutine = ({ myRoutine }) => {
 
   return (
     <>
       <div className="routineBox">
         <div className="routineInfo">
-        <div>Routine Info</div>
-          <div>{`Created By: ${routine.creatorName}`}</div>
-          <div>{`Name: ${routine.name}`}</div>
-          <div>{`Goal: ${routine.goal}`}</div>
+          <div>Routine Info</div>
+          <div>{`Created By: ${myRoutine.creatorName}`}</div>
+          <div>{`Name: ${myRoutine.name}`}</div>
+          <div>{`Goal: ${myRoutine.goal}`}</div>
         </div>
 
         <div className="activities">
-          {routine.activities.length ? (
-            routine.activities.map((activity) => {
+          {myRoutine.activities.length ? (
+            myRoutine.activities.map((activity) => {
               return (
                 <div
                   className="activity"
                   key={`activity-${activity.id}`}
-                  routine={routine}
-                > <div>Activity</div>
+                >
                   <div>{`ID: ${activity.id}`}</div>
                   <div>{`Name: ${activity.name}`}</div>
                   <div>{`Description: ${activity.description}`}</div>

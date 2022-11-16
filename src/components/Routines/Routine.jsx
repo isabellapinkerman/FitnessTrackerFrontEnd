@@ -12,7 +12,7 @@ const Routine = ({routine}) => {
           <div>{`Goal: ${routine.goal}`}</div>
           </div>
         <div className="activities">
-          {routine.activities.length ? (
+          {routine.activities ? (
             routine.activities.map((activity) => {
               return (
                 <div

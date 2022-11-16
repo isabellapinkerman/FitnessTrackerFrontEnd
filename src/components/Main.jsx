@@ -17,10 +17,10 @@ import {
   CreateRoutine,
   Home,
   Login,
-  MyRoutines,
   Navbar,
   Register,
   RoutinesSearch,
+  MyRoutinesSearch,
   Footer,
 } from "./";
 
@@ -37,8 +37,6 @@ const Main = () => {
     }
     fetchUserData();
   }, []);
-
-
 
   //-----------GET ALL ROUTINES------------------------------
   const [allRoutines, setAllRoutines] = useState([]);
@@ -64,10 +62,15 @@ const Main = () => {
   const [allPublicRoutinesByUser, setAllPublicRoutinesByUser] = useState([]);
   useEffect(() => {
     async function fetchAllPublicRoutinesByUser() {
-      const publicRoutinesByUser = await getPublicUserRoutines(user.username, token);
+      const publicRoutinesByUser = await getPublicUserRoutines(
+        user.username,
+        token
+      );
       setAllPublicRoutinesByUser(publicRoutinesByUser);
     }
-    if(user){fetchAllPublicRoutinesByUser()};
+    if (user) {
+      fetchAllPublicRoutinesByUser();
+    }
   }, [user]);
 
   //-----------ROUTER------------------------------
@@ -78,30 +81,46 @@ const Main = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="routines"
-          element={<RoutinesSearch allRoutines={allRoutines}  token={token} />}
+          element={<RoutinesSearch allRoutines={allRoutines} token={token} />}
         />
         <Route
           path="myRoutines"
           element={
-            <MyRoutines allPublicRoutinesByUser={allPublicRoutinesByUser} />
+            <MyRoutinesSearch
+              allPublicRoutinesByUser={allPublicRoutinesByUser}
+              token={token}
+              user={user}
+            />
           }
         />
         <Route
           path="activities"
           element={
-            <ActivitiesSearch
-              allActivities={allActivities}
-              token={token}
-            />
+            <ActivitiesSearch allActivities={allActivities} token={token} />
           }
         />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route
           path="createActivity"
-          element={<CreateActivity token={token} allActivities={allActivities} setAllActivities={setAllActivities}/>}
+          element={
+            <CreateActivity
+              token={token}
+              allActivities={allActivities}
+              setAllActivities={setAllActivities}
+            />
+          }
         />
-        <Route path="createRoutine" element={<CreateRoutine token={token} setAllRoutines={setAllRoutines} allRoutines={allRoutines}/>} />
+        <Route
+          path="createRoutine"
+          element={
+            <CreateRoutine
+              token={token}
+              allRoutines={allRoutines}
+              setAllRoutines={setAllRoutines}
+            />
+          }
+        />
       </Route>
     )
   );

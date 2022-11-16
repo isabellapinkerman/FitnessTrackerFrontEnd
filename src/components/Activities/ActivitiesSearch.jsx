@@ -29,11 +29,15 @@ const ActivitiesSearch = ({ allActivities, token }) => {
 
   return (
     <>
+    <div className="activityPage">
+    <div className="searchBar">
       <form>
         <label htmlFor="search"> Search: </label>
         <input type="text" onChange={handleChange} />
       </form>
       <Activities activities={activities} token={token} />
+      </div>
+      </div>
     </>
   );
 };

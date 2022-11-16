@@ -21,7 +21,7 @@ import {
   Navbar,
   Register,
   RoutinesSearch,
-  Footer
+  Footer,
 } from "./";
 
 const Main = () => {
@@ -37,6 +37,8 @@ const Main = () => {
     }
     fetchUserData();
   }, []);
+
+
 
   //-----------GET ALL ROUTINES------------------------------
   const [allRoutines, setAllRoutines] = useState([]);
@@ -62,11 +64,11 @@ const Main = () => {
   const [allPublicRoutinesByUser, setAllPublicRoutinesByUser] = useState([]);
   useEffect(() => {
     async function fetchAllPublicRoutinesByUser() {
-      const publicRoutinesByUser = await getPublicUserRoutines(user, token);
+      const publicRoutinesByUser = await getPublicUserRoutines(user.username, token);
       setAllPublicRoutinesByUser(publicRoutinesByUser);
     }
-    fetchAllPublicRoutinesByUser();
-  }, []);
+    if(user){fetchAllPublicRoutinesByUser()};
+  }, [user]);
 
   //-----------ROUTER------------------------------
 
@@ -87,14 +89,18 @@ const Main = () => {
         <Route
           path="activities"
           element={
-            <ActivitiesSearch allActivities={allActivities} token={token} />
+            <ActivitiesSearch
+              allActivities={allActivities}
+              setAllActivities={setAllActivities}
+              token={token}
+            />
           }
         />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route
           path="createActivity"
-          element={<CreateActivity token={token} />}
+          element={<CreateActivity token={token} allActivities ={allActivities} setAllActivities={setAllActivities}/>}
         />
         <Route path="createRoutine" element={<CreateRoutine />} />
       </Route>

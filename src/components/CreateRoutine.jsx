@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoutine } from "../api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateRoutine = () => {
   const navigate = useNavigate();
@@ -27,11 +27,10 @@ const CreateRoutine = () => {
     console.log(createdRoutine, "this is new activity");
   }
 
-  function redirect() {
-    let path = "/routines";
-    navigate(path);
-    location.reload();
-  }
+  // function redirect() {
+  //   let path = "/routines";
+  //   navigate(path);
+  // }
 
   return (
     <>
@@ -48,9 +47,9 @@ const CreateRoutine = () => {
           Submit
         </button>
       </form>
-      <button onClick={redirect} className="button">
-        Back
-      </button>
+      <Link to={"/routines"}>
+        <button className="button">Back</button>
+      </Link>
     </>
   );
 };

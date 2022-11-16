@@ -7,7 +7,6 @@ const Navbar = () => {
 function handleClick(){
   localStorage.removeItem("token")
   navigate('/')
-  location.reload()
 }
 
   return (

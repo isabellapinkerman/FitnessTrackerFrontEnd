@@ -22,7 +22,6 @@ const [message, setMessage] = useState('Please enter username and password')
                 console.log('failed')
             }
             navigate('/')
-            location.reload()
         } catch (error) {
             console.log(error)
         }

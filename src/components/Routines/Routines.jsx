@@ -2,7 +2,7 @@ import React from "react";
 import Routine from "./Routine";
 
 const Routines = ({ routines }) => {
-  console.log(routines)
+
   return (
     <>
       <div className="routines">

@@ -1,32 +1,33 @@
-import React from "react";
-import {useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { createActivity } from "../api";
 
-const CreateActivity = () => {
+const CreateActivity = ({token}) => {
+
+const [message, setMessage] = useState('Please enter activity name and description')
   const navigate = useNavigate()
 
   async function handleSubmit(event) {
-    const token = localStorage.getItem("token");
+    event.preventDefault()
     const name = event.target[0].value;
     const description = event.target[1].value;
     const createdActivity = await createActivity(token, name, description);
 
-    console.log(createdActivity, "this is new activity");
-
-    if (createdActivity) {
+    if (!createdActivity.error) {
       event.target[0].value = null;
       event.target[1].value = null;
-    }
-    location.reload()
+      setMessage(`You've successfully created a new activity`)
+    } else {setMessage(`Activity with activity name "${name}" already exists`)}
   }
 
-  function redirect(){
+  function redirectToMyRoutines(){
     let path = '/myRoutines'
     navigate(path)
   }
 
   return (
     <>
+    <div>{message}</div>
       <form className="registerForm" onSubmit={handleSubmit}>
         <label htmlFor="name">Activity Name:</label>
         <input type="text" placeholder="Enter activity name" required></input>
@@ -34,7 +35,7 @@ const CreateActivity = () => {
         <input type="text" placeholder="Enter description" required></input>
         <button className="button" type="submit">Submit</button>
       </form>
-      <button onClick={redirect}className="button">Back</button>
+      <button onClick={redirectToMyRoutines}className="button">Back</button>
     </>
   );
 };

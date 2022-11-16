@@ -1,6 +1,6 @@
 import React from "react";
-import MyRoutine from "./MyRoutine";
 import { Link } from "react-router-dom";
+import MyRoutine from "./MyRoutine";
 
 const MyRoutines = ({ allPublicRoutinesByUser }) => {
   return (

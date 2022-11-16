@@ -23,6 +23,7 @@ const [message, setMessage] = useState('Please enter activity name and descripti
   function redirectToMyRoutines(){
     let path = '/activities'
     navigate(path)
+    location.reload()
   }
 
   return (

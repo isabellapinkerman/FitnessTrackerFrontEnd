@@ -15,6 +15,7 @@ import {
   Home,
   CreateActivity,
   RoutinesSearch,
+  ActivitiesSearch,
 } from "./";
 import {
   getAllPublicRoutines,
@@ -71,7 +72,7 @@ const Main = () => {
         />
         <Route
           path="activities"
-          element={<Activities allActivities={allActivities} />}
+          element={<ActivitiesSearch allActivities={allActivities} />}
         />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

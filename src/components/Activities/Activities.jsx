@@ -1,13 +1,13 @@
 import React from "react";
 import Activity from "./Activity";
 
-const Activities = ({ allActivities }) => {
+const Activities = ({ activities }) => {
   return (
     <>
       <div>{`This is your Activities component`}</div>
       <div><div className="routines">
-        {allActivities.length ? (
-          allActivities.map((activity) => {
+        {activities.length ? (
+          activities.map((activity) => {
             return (
               <Activity
                 key={`activity-${activity.id}`}

@@ -54,3 +54,8 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
+.navButton{
+  background-color: lightskyblue;
+  border-radius: 5px;
+}

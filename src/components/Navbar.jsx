@@ -37,7 +37,7 @@ function handleClick(){
               <Link to={"/myRoutines"}>
             <button className="navButton">My Routines</button>
           </Link>
-                <button onClick={handleClick}>LogOut</button>
+                <button className="navButton" onClick={handleClick}>LogOut</button>
               </div>
           )}
           </div>

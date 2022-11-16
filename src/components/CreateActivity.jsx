@@ -4,15 +4,15 @@ import { createActivity } from "../api";
 const CreateActivity = () => {
   async function handleSubmit(event) {
     const token = localStorage.getItem("token");
-    const name = event.target[1].value;
-    const description = event.target[2].value;
+    const name = event.target[0].value;
+    const description = event.target[1].value;
     const createdActivity = await createActivity(token, name, description);
 
     console.log(createdActivity, "this is new activity");
 
     if (createdActivity) {
+      event.target[0].value = null;
       event.target[1].value = null;
-      event.target[2].value = null;
     }
     location.reload()
   }

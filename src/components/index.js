@@ -9,5 +9,7 @@ export { default as Main } from "./Main";
 export { default as MyRoutines } from "./MyRoutines";
 export { default as Navbar } from "./Navbar";
 export { default as Register } from "./Register";
-export { default as Routines } from "./Routines";
+
 export { default as Routine } from "./Routine";
+export { default as Routines } from "./Routines";
+export { default as RoutinesSearch } from "./RoutinesSearch";

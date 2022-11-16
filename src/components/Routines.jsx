@@ -1,23 +1,18 @@
 import React from "react";
 import Routine from "./Routine";
 
-const Routines = ({ allRoutines }) => {
+const Routines = ({ routines }) => {
+  console.log(routines)
   return (
     <>
-      <div>{`This is your Routines component`}</div>
-      <div><div className="routines">
-        {allRoutines.length ? (
-          allRoutines.map((routine) => {
-            return (
-              <Routine
-                key={`routine-${routine.id}`}
-                routine={ routine }
-              />
-            );
+      <div className="routines">
+        {routines.length ? (
+          routines.map((routine) => {
+            return <Routine key={`routine-${routine.id}`} routine={routine} />;
           })
         ) : (
-          <div>Loading Routines</div>
-        )}</div>
+          <div>No Routines Found</div>
+        )}
       </div>
     </>
   );

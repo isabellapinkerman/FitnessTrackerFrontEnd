@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {login} from '../api'
 import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
 const navigate = useNavigate();
+const [message, setMessage] = useState('Please enter username and password')
 
     async function handleSubmit(event){
         try {
@@ -17,6 +18,7 @@ const navigate = useNavigate();
             if(token){
                 console.log("success")
             }else{
+                setMessage("Username or password is incorrect")
                 console.log('failed')
             }
             navigate('/')
@@ -29,7 +31,8 @@ const navigate = useNavigate();
 
     return (
         <>
-        <div>
+        <div className="registerPage">
+            <div>Welcome Back to Fitness Tracker, Log In Here!</div>
             <form className="registerForm" onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input type="text" placeholder="Enter username here" required></input>
@@ -39,6 +42,7 @@ const navigate = useNavigate();
                 Login
             </button>
             </form>
+            <div className="message">{message}</div>
         </div>
         </>
     )

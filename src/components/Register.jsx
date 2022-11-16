@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate()
-    const [message, setMessage] = useState('Please register username and password')
+    const [message, setMessage] = useState('Please enter username and password')
 
 async function handleSubmit(event){
     try {
@@ -35,7 +35,8 @@ async function handleSubmit(event){
 
     return (
         <>
-        <div>
+        <div className="registerPage">
+            <div>Sign Up for Fitness Tracker Here!</div>
         <form className="registerForm" onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input type="text" placeholder="Enter username here" required></input>
@@ -45,7 +46,7 @@ async function handleSubmit(event){
                 Register
             </button>
         </form>
-        <div className="registerMessage">{message}</div>
+        <div className="message">{message}</div>
         </div>
         </>
     )

@@ -13,8 +13,8 @@ function handleClick(){
   return (
     <>
       <div id="Navbar">
-        <h2>Fitness Tracker</h2>
-        <div className="dropDownMenu">
+        <h2 className="fitnessTracker">Fitness Tracker</h2>
+        <div className="buttonGroup">
           <Link to={"/"}>
             <button className="navButton">Home</button>
           </Link>

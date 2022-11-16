@@ -32,7 +32,7 @@ const CreateActivity = () => {
         <input type="text" placeholder="Enter activity name" required></input>
         <label htmlFor="description">Description:</label>
         <input type="text" placeholder="Enter description" required></input>
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
       <button onClick={redirect}className="button">Back</button>
     </>

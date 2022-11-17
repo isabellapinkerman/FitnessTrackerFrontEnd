@@ -30,9 +30,9 @@ const RoutinesSearch = ({ allRoutines, token }) => {
   return (
     <>
       <div className="searchBar">
-        <form>
+        <form >
           <label htmlFor="search"> Search: </label>
-          <input type="text" onChange={handleChange} />
+          <input className="searchInput" type="text" onChange={handleChange} />
         </form>
       </div>
       <Routines routines={routines} token={token} />

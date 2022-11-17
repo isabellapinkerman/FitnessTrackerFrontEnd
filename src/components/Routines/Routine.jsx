@@ -30,7 +30,7 @@ const Routine = ({ routine }) => {
                         <div>{`Count: ${activity.count}`}</div>
                       </div>
                     ) : (
-                      <div>This routine has no activity</div>
+                      <div className="noActivity">This routine has no activity</div>
                     )}
                   </div>
                 </div>

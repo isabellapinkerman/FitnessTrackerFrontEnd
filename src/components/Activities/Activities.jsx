@@ -5,7 +5,7 @@ import Activity from "./Activity";
 const Activities = ({ activities, setActivities, token }) => {
   return (
     <>
-      <div>
+      <div className="createButton">
         {localStorage.getItem("token") ? (
           <Link to={"/createActivity"}>
             <button className="createActivity">Create Activity</button>

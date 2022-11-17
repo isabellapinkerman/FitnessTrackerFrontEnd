@@ -5,7 +5,7 @@ import Routine from "./Routine";
 const Routines = ({ routines, token }) => {
   return (
     <>
-      <div>
+      <div className="createButton">
         {localStorage.getItem("token") ? (
           <Link to={"/createRoutine"}>
             <button>Create Routine</button>

@@ -15,7 +15,6 @@ export async function register(username, password) {
   const result = await response.json();
   return result;
 }
-//^^^^not checked
 
 export async function login(username, password) {
   const options = {
@@ -32,7 +31,7 @@ export async function login(username, password) {
   const result = await response.json();
   return result;
 }
-//^^^^ not checked
+
 
 export async function getUserData(token) {
   const options = {
@@ -45,7 +44,6 @@ export async function getUserData(token) {
   const result = await response.json();
   return result;
 }
-//^^^ not checked
 
 export async function getPublicRoutinesByUser(username, token) {
   const options = {};
@@ -63,7 +61,6 @@ export async function getPublicRoutinesByUser(username, token) {
   return result;
 }
 
-
 export async function getAllActivities() {
   const options = {
     headers: {
@@ -74,7 +71,7 @@ export async function getAllActivities() {
   const result = await response.json();
   return result;
 }
-//^^^ not checked
+
 
 export async function createActivity(token, name, description) {
   const options = {
@@ -92,7 +89,6 @@ export async function createActivity(token, name, description) {
   const result = await response.json();
   return result;
 }
-//^^^ not checked
 
 export async function updateActivity(token, activityId, name, description) {
   const options = {
@@ -186,6 +182,7 @@ export async function deleteRoutine(routineId, token) {
 }
 
 export async function attachActivityToRoutine(
+  token,
   routineId,
   activityId,
   count,
@@ -193,6 +190,10 @@ export async function attachActivityToRoutine(
 ) {
   const options = {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       activityId: activityId,
       count: count,

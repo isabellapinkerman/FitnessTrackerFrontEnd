@@ -1,15 +1,24 @@
 import React, { useState } from "react";
-import { deleteRoutine, updateRoutine, attachActivityToRoutine } from "../../api";
+import {
+  deleteRoutine,
+  updateRoutine,
+  attachActivityToRoutine,
+} from "../../api";
 
-const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities }) => {
+const MyRoutine = ({
+  myRoutines,
+  setMyRoutines,
+  myRoutine,
+  token,
+  allActivities,
+}) => {
   const [routine, setRoutine] = useState(myRoutine);
-  const activities = allActivities
 
   const [message, setMessage] = useState(
     "Please enter routine name and description"
   );
 
-  async function handleChangeDelete() {
+  async function handleChangeDeleteRoutine() {
     const deletedRoutine = await deleteRoutine(myRoutine.id, token);
 
     if (deletedRoutine.success) {
@@ -20,13 +29,12 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities 
     }
   }
 
-
   async function handleSubmitEdit(event) {
     event.preventDefault();
     const name = event.target[0].value;
     const goal = event.target[1].value;
     let isPublic = event.target[2].value;
-    console.log(isPublic)
+    console.log(isPublic);
     if (isPublic === "Public") {
       isPublic = true;
     } else {
@@ -56,15 +64,20 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities 
     }
   }
 
-  async function handleClickSubmit(event){
-    event.preventDefault()
-    let routineId = routine.id
-    // let activityId = activity.id
-    let value = event.target[0].value
-    let count = event.target[1].value
-    let duration = event.target[2].value
-    //const attachedActivity =await attachActivityToRoutine(routineId, activityId, count, duration)
-    console.log(routineId, value, count, duration)
+  async function handleClickSubmit(event) {
+    event.preventDefault();
+    let routineId = routine.id;
+    let activityId = event.target[0].value;
+    let count = event.target[1].value;
+    let duration = event.target[2].value;
+    const attachedActivity = await attachActivityToRoutine(
+      token,
+      routineId,
+      activityId,
+      count,
+      duration
+    );
+    console.log(allActivities);
   }
 
   return (
@@ -79,7 +92,7 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities 
             Privacy Setting:{" "}
             {routine.isPublic ? <span>Public</span> : <span>Private</span>}
           </div>
-          <button onClick={handleChangeDelete}>Delete Routine</button>
+          <button onClick={handleChangeDeleteRoutine}>Delete Routine</button>
         </div>
         <div className="routineInfo">
           <div>Routine Edit</div>
@@ -111,20 +124,24 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities 
         <div className="routineInfo">
           <div>Attach Activity to Routine</div>
           <form onSubmit={handleClickSubmit}>
-          <select>
-            {allActivities.map((activity)=>{
-                return <option key={`activity-${activity.id}`}>{activity.name}</option>
-            })}
-          </select>
-          <div>
+            <select>
+              {allActivities.map((activity) => {
+                return (
+                  <option key={`activity-${activity.id}`} value={activity.id}>
+                    {activity.name}
+                  </option>
+                );
+              })}
+            </select>
+            <div>
               <label htmlFor="count">Count: </label>
-              <input type="number" required></input>
+              <input type="number" min="0" required></input>
             </div>
             <div>
               <label htmlFor="duration">Duration: </label>
-              <input type="number" required></input>
+              <input type="number" min="0" required></input>
             </div>
-          <button type="submit">Submit</button>
+            <button type="submit">Submit</button>
           </form>
         </div>
 
@@ -138,6 +155,7 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities 
                   <div>{`Description: ${activity.description}`}</div>
                   <div>{`Duration: ${activity.duration}`}</div>
                   <div>{`Count: ${activity.count}`}</div>
+                  <div>{`routineActivityId: ${activity.routineActivityId}`}</div>
                 </div>
               );
             })

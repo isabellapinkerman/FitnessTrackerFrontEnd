@@ -14,7 +14,7 @@ const Activities = ({ activities, setActivities, token }) => {
           <></>
         )}
       </div>
-      <div className="routines">
+      <div className="activities">
         {activities.length ? (
           activities.map((activity) => {
             return (

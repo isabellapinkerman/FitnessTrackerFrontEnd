@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Activity from "./Activity";
 
-const Activities = ({ activities, token }) => {
+const Activities = ({ activities, setActivities, token }) => {
   return (
     <>
       <div>
@@ -18,11 +18,16 @@ const Activities = ({ activities, token }) => {
         {activities.length ? (
           activities.map((activity) => {
             return (
-              <Activity key={`activity-${activity.id}`} activity={activity} />
+              <Activity
+                key={`activity-${activity.id}`}
+                activity={activity}
+                setActivities={setActivities}
+                token={token}
+              />
             );
           })
         ) : (
-          <div>Loading Activities</div>
+          <div>Activity Does Not Exist</div>
         )}
       </div>
     </>

@@ -35,7 +35,11 @@ const ActivitiesSearch = ({ allActivities, token }) => {
             <label htmlFor="search"> Search: </label>
             <input type="text" onChange={handleChange} />
           </form>
-          <Activities activities={activities} token={token} />
+          <Activities
+            token={token}
+            activities={activities}
+            setActivities={setActivities}
+          />
         </div>
       </div>
     </>

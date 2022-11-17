@@ -94,9 +94,13 @@ export async function createActivity(token, name, description) {
 }
 //^^^ not checked
 
-export async function updateActivity(activityId, name, description) {
+export async function updateActivity(token, activityId, name, description) {
   const options = {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       name: name,
       description: description,

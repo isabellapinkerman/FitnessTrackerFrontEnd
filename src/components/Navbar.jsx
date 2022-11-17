@@ -2,13 +2,13 @@ import React from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-function handleClick(){
-  localStorage.removeItem("token")
-  localStorage.removeItem("username")
-  navigate('/')
-}
+  function handleClick() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    navigate("/");
+  }
 
   return (
     <>
@@ -25,21 +25,25 @@ function handleClick(){
             <button className="navButton">Activities</button>
           </Link>
           <div>
-          {!localStorage.getItem('token') ? (
-            <div><Link to={"/login"}>
-            <button className="navButton">Login</button>
-          </Link>
-          <Link to={"/register"}>
-            <button className="navButton">Register</button>
-          </Link></div>
-          ) : (
-            <div>
-              <Link to={"/myRoutines"}>
-            <button className="navButton">My Routines</button>
-          </Link>
-                <button className="navButton" onClick={handleClick}>Log Out</button>
+            {!localStorage.getItem("token") ? (
+              <div>
+                <Link to={"/login"}>
+                  <button className="navButton">Login</button>
+                </Link>
+                <Link to={"/register"}>
+                  <button className="navButton">Register</button>
+                </Link>
               </div>
-          )}
+            ) : (
+              <div>
+                <Link to={"/myRoutines"}>
+                  <button className="navButton">My Routines</button>
+                </Link>
+                <button className="navButton" onClick={handleClick}>
+                  Log Out
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

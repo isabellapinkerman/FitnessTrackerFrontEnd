@@ -1,55 +1,54 @@
-import React, {useState} from 'react';
-import {register} from '../api';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from "react";
+import { register } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const navigate = useNavigate()
-    const [message, setMessage] = useState('Please enter username and password')
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("Please enter username and password");
 
-async function handleSubmit(event){
+  async function handleSubmit(event) {
     try {
-        event.preventDefault();
-        const username = event.target[0].value;
-        const password = event.target[1].value;
-        if(password.length < 8){
-            setMessage('Password is less than 8 characters') 
-            return
-          }
-        const registerUser= await register(username, password);
-        const token = registerUser.token
-        if(token){
-            console.log("success")
-            event.target[0].value = null
-            event.target[1].value = null
-            navigate('/login')
-        }else{ 
-            setMessage('Username already exists')
-            console.log('failed')
-        }
-        localStorage.removeItem("token")
-
+      event.preventDefault();
+      const username = event.target[0].value;
+      const password = event.target[1].value;
+      if (password.length < 8) {
+        setMessage("Password is less than 8 characters");
+        return;
+      }
+      const registerUser = await register(username, password);
+      const token = registerUser.token;
+      if (token) {
+        console.log("success");
+        event.target[0].value = null;
+        event.target[1].value = null;
+        navigate("/login");
+      } else {
+        setMessage("Username already exists");
+        console.log("failed");
+      }
+      localStorage.removeItem("token");
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-}
+  }
 
-    return (
-        <>
-        <div className="registerPage">
-            <div>Sign Up for Fitness Tracker Here!</div>
+  return (
+    <>
+      <div className="registerPage">
+        <div>Sign Up for Fitness Tracker Here!</div>
         <form className="registerForm" onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input type="text" placeholder="Enter username here" required></input>
-            <label htmlFor="password">Password:</label>
-            <input type="text" placeholder="Enter password here" required></input>
-            <button type="submit" className="button">
-                Register
-            </button>
+          <label htmlFor="username">Username:</label>
+          <input type="text" placeholder="Enter username here" required></input>
+          <label htmlFor="password">Password:</label>
+          <input type="text" placeholder="Enter password here" required></input>
+          <button type="submit" className="button">
+            Register
+          </button>
         </form>
         <div className="message">{message}</div>
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default Register;

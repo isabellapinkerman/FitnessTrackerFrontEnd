@@ -17,9 +17,7 @@ const Routines = ({ routines, token }) => {
       <div className="routines">
         {routines.length ? (
           routines.map((routine) => {
-            return (
-            <Routine key={`routine-${routine.id}`} routine={routine}/>
-            );
+            return <Routine key={`routine-${routine.id}`} routine={routine} />;
           })
         ) : (
           <div>No Routines Found</div>

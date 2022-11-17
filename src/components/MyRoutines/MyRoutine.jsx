@@ -10,13 +10,11 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
 
   async function handleChangeDelete() {
     const deletedRoutine = await deleteRoutine(myRoutine.id, token);
-    console.log(deletedRoutine);
 
     if (deletedRoutine.success) {
       myRoutines = myRoutines.filter(
         (routine) => routine.id !== deletedRoutine.id
       );
-
       setMyRoutines(myRoutines);
     }
   }

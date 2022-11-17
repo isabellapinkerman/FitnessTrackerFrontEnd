@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { deleteRoutine, updateRoutine } from "../../api";
+import { deleteRoutine, updateRoutine, attachActivityToRoutine } from "../../api";
 
-const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
+const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token, allActivities }) => {
   const [routine, setRoutine] = useState(myRoutine);
+  const activities = allActivities
 
   const [message, setMessage] = useState(
     "Please enter routine name and description"
@@ -19,12 +20,13 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
     }
   }
 
+
   async function handleSubmitEdit(event) {
     event.preventDefault();
     const name = event.target[0].value;
     const goal = event.target[1].value;
     let isPublic = event.target[2].value;
-
+    console.log(isPublic)
     if (isPublic === "Public") {
       isPublic = true;
     } else {
@@ -52,6 +54,17 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
+  }
+
+  async function handleClickSubmit(event){
+    event.preventDefault()
+    let routineId = routine.id
+    // let activityId = activity.id
+    let value = event.target[0].value
+    let count = event.target[1].value
+    let duration = event.target[2].value
+    //const attachedActivity =await attachActivityToRoutine(routineId, activityId, count, duration)
+    console.log(routineId, value, count, duration)
   }
 
   return (
@@ -92,6 +105,26 @@ const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
                 Submit
               </button>
             </div>
+          </form>
+        </div>
+
+        <div className="routineInfo">
+          <div>Attach Activity to Routine</div>
+          <form onSubmit={handleClickSubmit}>
+          <select>
+            {allActivities.map((activity)=>{
+                return <option key={`activity-${activity.id}`}>{activity.name}</option>
+            })}
+          </select>
+          <div>
+              <label htmlFor="count">Count: </label>
+              <input type="number" required></input>
+            </div>
+            <div>
+              <label htmlFor="duration">Duration: </label>
+              <input type="number" required></input>
+            </div>
+          <button type="submit">Submit</button>
           </form>
         </div>
 

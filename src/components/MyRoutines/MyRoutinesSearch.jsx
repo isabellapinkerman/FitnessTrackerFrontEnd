@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MyRoutines from "./MyRoutines";
 import { getPublicRoutinesByUser } from "../../api";
 
-const MyRoutinesSearch = ({ token }) => {
+const MyRoutinesSearch = ({ token, allActivities }) => {
   const [myRoutines, setMyRoutines] = useState([]);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const MyRoutinesSearch = ({ token }) => {
         myRoutines={myRoutines}
         setMyRoutines={setMyRoutines}
         token={token}
+        allActivities={allActivities}
       />
     </>
   );

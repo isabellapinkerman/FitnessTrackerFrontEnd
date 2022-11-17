@@ -7,10 +7,9 @@ const Home = () => {
         Organize and schedule your Fitness Journey with Fitness Tracker!
       </div>
       <div>
-      <div className="today">Get started Today!</div>
       <div className="homeBody">
-        <div>
-          Benefits
+        <div className="benefits">
+         <div className="Benefits">Benefits</div> 
           <p>Create Workout Routines for you and your friends</p>
           <p>Track and share your Fitness Journey</p>
           <p>An organized schedule to help Motivate and Inspire</p>

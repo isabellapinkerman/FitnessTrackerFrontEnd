@@ -28,18 +28,20 @@ body {
 }
 
 .fitnessTracker{
-  color: black;
+  color: rgb(40, 246, 125);
   font-family: Copperplate;
   font-size: 40px;
   -webkit-text-stroke-width: .8px;
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: rgb(19, 139, 15);
 }
 
 .routines{
   width: fill;
+  min-width: fit-content;
   align-items: center;
 }
-.routineBox {
+.routineBox,
+.activityBox {
   border: 1px solid rgb(76,80,82);
   background-color: grey;
   padding: 10px;
@@ -50,28 +52,32 @@ body {
   justify-content: space-between;
 }
 
-.routineInfo {
+.routineInfo,
+.activityInfo {
   border: 1px solid rgb(91,100,99);
   background-color: rgba(176, 180, 180, 0.598);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
   height:max-content;
-  width: 300px;
+  min-width: 300px;
+  max-width: fill-content;
 }
 select{
   max-width: 270px;
 }
+
+.activities{
+  display: flex;
+  flex-direction: column;
+}
+
 .activity{
   border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-}
-.activityBox{
-  display: flex;
-  flex-flow: nowrap;
 }
 
 .editBox{
@@ -96,6 +102,7 @@ select{
   border-radius: 5px;
   margin: 2px;
   opacity: .8;
+  box-shadow: 1px 1px 5px rgb(40, 246, 125);
 }
 
 .button,
@@ -148,7 +155,3 @@ font-size: 15px;
   width: 400px;
 }
 
-.activityPage{
-  display: flex;
-  flex-direction: row;
-}

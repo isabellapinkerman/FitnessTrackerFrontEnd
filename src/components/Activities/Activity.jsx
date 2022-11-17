@@ -36,15 +36,16 @@ const Activity = ({ activity, token }) => {
 
   return (
     <>
-      <div className="routineBox">
-        <div className="routineInfo">
+      <div className="activityBox">
+        <div className="activityInfo">
           <div>Activity Info</div>
           <div>{`Name: ${activityEdit.name}`}</div>
           <div>{`Description: ${activityEdit.description}`}</div>
         </div>
         <div>
           {localStorage.getItem("token") ? (
-            <div className="routineInfo">
+            <div className="activityInfo">
+              <div className="editBox">
               <div>Activity Edit</div>
               <div>{message}</div>
               <form className="registerForm" onSubmit={handleSubmitEdit}>
@@ -62,6 +63,7 @@ const Activity = ({ activity, token }) => {
                   </button>
                 </div>
               </form>
+              </div>
             </div>
           ) : (
             <></>

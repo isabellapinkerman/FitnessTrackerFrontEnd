@@ -5,7 +5,7 @@ const Routine = ({ routine }) => {
     <>
       <div className="routineBox">
         <div className="routineInfo">
-          <div>Routine Info</div>
+          <div className="routineId">{`Routine ${routine.id}`}</div>
           <div>{`Created By: ${routine.creatorName}`}</div>
           <div>{`Name: ${routine.name}`}</div>
           <div>{`Goal: ${routine.goal}`}</div>

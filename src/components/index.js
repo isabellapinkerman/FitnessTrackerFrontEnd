@@ -8,6 +8,7 @@ export { default as ActivityCreate } from "./Activities/ActivityCreate";
 //---------------MY ROUTINES FOLDER---------------
 
 export { default as MyRoutine } from "./MyRoutines/MyRoutine";
+export { default as MyRoutineActivities } from "./MyRoutines/MyRoutineActivities";
 export { default as MyRoutines } from "./MyRoutines/MyRoutines";
 export { default as MyRoutinesSearch } from "./MyRoutines/MyRoutinesSearch";
 

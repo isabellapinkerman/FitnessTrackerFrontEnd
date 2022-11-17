@@ -4,6 +4,7 @@ import {
   updateRoutine,
   attachActivityToRoutine,
 } from "../../api";
+import MyRoutineActivities from "./MyRoutineActivities";
 
 const MyRoutine = ({
   myRoutines,
@@ -14,10 +15,7 @@ const MyRoutine = ({
 }) => {
   const [routine, setRoutine] = useState(myRoutine);
 
-  const [message, setMessage] = useState(
-    "Enter routine name and description."
-  );
-
+  const [message, setMessage] = useState("Enter routine name and description.");
 
   async function handleChangeDeleteRoutine() {
     const deletedRoutine = await deleteRoutine(myRoutine.id, token);
@@ -63,11 +61,10 @@ const MyRoutine = ({
     }
   }
 
-
   const [attachActivityMessage, setAttachActivityMessage] = useState(
     "Select an activity then add a duration and count. "
   );
-  
+
   async function handleClickAttachActivity(event) {
     event.preventDefault();
     let routineId = routine.id;
@@ -161,14 +158,11 @@ const MyRoutine = ({
             {routine.activities.length ? (
               routine.activities.map((activity) => {
                 return (
-                  <div className="activity" key={`activity-${activity.id}`}>
-                    <div>{`ID: ${activity.id}`}</div>
-                    <div>{`Name: ${activity.name}`}</div>
-                    <div>{`Description: ${activity.description}`}</div>
-                    <div>{`Duration: ${activity.duration}`}</div>
-                    <div>{`Count: ${activity.count}`}</div>
-                    <div>{`routineActivityId: ${activity.routineActivityId}`}</div>
-                  </div>
+                  <MyRoutineActivities
+                    key={`activity-${activity.id}`}
+                    activity={activity}
+                    token={token}
+                  />
                 );
               })
             ) : (

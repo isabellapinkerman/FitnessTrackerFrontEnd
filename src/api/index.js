@@ -209,12 +209,17 @@ export async function attachActivityToRoutine(
 }
 
 export async function updateRoutineActivity(
+  token,
   count,
   duration,
   routineActivityId
 ) {
   const options = {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       count: count,
       duration: duration,

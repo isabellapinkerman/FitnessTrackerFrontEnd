@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createActivity } from "../api";
+import { createActivity } from "../../api";
 
-const CreateActivity = ({ token, allActivities, setAllActivities }) => {
+const ActivityCreate = ({ token, allActivities, setAllActivities }) => {
   const [message, setMessage] = useState(
     "Please enter activity name and description"
   );
@@ -42,4 +42,4 @@ const CreateActivity = ({ token, allActivities, setAllActivities }) => {
   );
 };
 
-export default CreateActivity;
+export default ActivityCreate;

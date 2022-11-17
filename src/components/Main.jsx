@@ -13,8 +13,8 @@ import {
 } from "../api";
 import {
   ActivitiesSearch,
-  CreateActivity,
-  CreateRoutine,
+  ActivityCreate,
+  RoutineCreate,
   Home,
   Login,
   Navbar,
@@ -105,7 +105,7 @@ const Main = () => {
         <Route
           path="createActivity"
           element={
-            <CreateActivity
+            <ActivityCreate
               token={token}
               allActivities={allActivities}
               setAllActivities={setAllActivities}
@@ -115,7 +115,7 @@ const Main = () => {
         <Route
           path="createRoutine"
           element={
-            <CreateRoutine
+            <RoutineCreate
               token={token}
               allRoutines={allRoutines}
               setAllRoutines={setAllRoutines}

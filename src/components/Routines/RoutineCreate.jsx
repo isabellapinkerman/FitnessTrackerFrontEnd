@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createRoutine } from "../api";
+import { createRoutine } from "../../api";
 
-const CreateRoutine = ({ allRoutines, setAllRoutines, token }) => {
+const RoutineCreate = ({ allRoutines, setAllRoutines, token }) => {
   const [message, setMessage] = useState(
     "Please enter activity name and description"
   );
@@ -28,8 +28,6 @@ const CreateRoutine = ({ allRoutines, setAllRoutines, token }) => {
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
-
-    console.log(createdRoutine)
   }
 
   return (
@@ -55,4 +53,4 @@ const CreateRoutine = ({ allRoutines, setAllRoutines, token }) => {
   );
 };
 
-export default CreateRoutine;
+export default RoutineCreate;

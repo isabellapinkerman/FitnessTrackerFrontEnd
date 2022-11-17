@@ -150,9 +150,13 @@ export async function createRoutine(token, name, goal, isPublic) {
   return result;
 }
 
-export async function updateRoutine(routineId, name, goal, isPublic) {
+export async function updateRoutine(token, routineId, name, goal, isPublic) {
   const options = {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       name: name,
       goal: goal,

@@ -38,7 +38,7 @@ const MyRoutinesSearch = ({ allPublicRoutinesByUser, setAllPublicRoutinesByUser,
         <input type="text" onChange={handleChange} />
       </form>
       </div>
-      <MyRoutines myRoutines={myRoutines} token={token} />
+      <MyRoutines myRoutines={myRoutines} token={token} allPublicRoutinesByUser={allPublicRoutinesByUser} setAllPublicRoutinesByUser={setAllPublicRoutinesByUser}/>
     </>
   );
 };

@@ -62,7 +62,45 @@ body {
   height:max-content;
   min-width: 300px;
   max-width: fill-content;
+  display: flex;
+  flex-direction: column;
 }
+
+.topRow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.creatorName{
+color:darkblue;
+}
+
+.routineName{
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.activityName{
+  font-weight: bold;
+}
+
+.routineId{
+  font-family: Copperplate;
+  color: rgb(19, 139, 15);
+  font-size: 17px;
+}
+
+.activityId{
+  font-family: Copperplate;
+  color:rgb(18, 100, 52)
+}
+
+.countDuration{
+  display: flex;
+  justify-content: space-around;
+}
+
 select{
   max-width: 270px;
 }
@@ -97,12 +135,21 @@ select{
   display: flex
 }
 
+.navButton:active{
+  transform: scale(1, 1);
+  box-shadow: 1px 1px 5px rgb(119, 246, 172);
+}
+
+.navButton:hover{
+  transform: scale(1.1,1.1);
+  box-shadow: 1px 1px 5px rgb(40, 246, 125);
+}
+
 .navButton{
   background-color: rgb(188,183,184);
   border-radius: 5px;
   margin: 2px;
   opacity: .8;
-  box-shadow: 1px 1px 5px rgb(40, 246, 125);
 }
 
 .button,

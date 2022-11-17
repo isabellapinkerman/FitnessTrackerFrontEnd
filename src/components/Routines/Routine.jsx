@@ -5,10 +5,12 @@ const Routine = ({ routine }) => {
     <>
       <div className="routineBox">
         <div className="routineInfo">
+          <div className="topRow">
           <div className="routineId">{`Routine ${routine.id}`}</div>
-          <div>{`Created By: ${routine.creatorName}`}</div>
-          <div>{`Name: ${routine.name}`}</div>
-          <div>{`Goal: ${routine.goal}`}</div>
+          <div className="creatorName">👤{routine.creatorName}</div>
+          </div>
+          <div className="routineName">{routine.name}</div>
+          <div className="routineGoal">{`Goal: ${routine.goal}`}</div>
         </div>
         <div className="activities">
           {routine.activities ? (
@@ -20,14 +22,16 @@ const Routine = ({ routine }) => {
                   routine={routine}
                 >
                   {" "}
-                  <div>Activity</div>
+                  <div className="activityId">{`Activity ${activity.id}`}</div>
                   <div>
                     {activity ? (
                       <div>
-                        <div>{`Name: ${activity.name}`}</div>
+                        <div className="activityName">🎖️ {activity.name}</div>
                         <div>{`Description: ${activity.description}`}</div>
+                        <div className="countDuration">
                         <div>{`Duration: ${activity.duration}`}</div>
                         <div>{`Count: ${activity.count}`}</div>
+                        </div>
                       </div>
                     ) : (
                       <div className="noActivity">This routine has no activity</div>

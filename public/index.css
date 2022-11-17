@@ -72,6 +72,7 @@ body {
 }
 
 .creatorName{
+  text-decoration: underline;
 color:darkblue;
 }
 
@@ -118,7 +119,16 @@ select{
   border-radius: 10px;
 }
 
-.editBox{
+.activityEditBox{
+  border: 1px solid #939c96;
+  background-color: lightgray;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.editBox,
+.activityEditBox{
   width: 450px;
 }
 
@@ -180,12 +190,27 @@ Button{
 .homePage{
   padding: 5px;
   margin: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .homeHeader{
   text-align: center;
   font-family: Copperplate;
-  font-size: 25px;
+  font-size: 30px;
+}
+
+.homeBody{
+  display: flex;
+  flex-direction: column;
+}
+
+.today{
+  text-align: center;
+}
+
+.highFiveImg{
+  display: flex;
 }
 
 .searchBar{

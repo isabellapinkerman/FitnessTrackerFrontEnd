@@ -38,7 +38,7 @@ const MyRoutinesSearch = ({ token, allActivities }) => {
       <div className="searchBar">
         <form>
           <label htmlFor="search"> Search: </label>
-          <input type="text" onChange={handleChange} />
+          <input className="searchInput" type="text" onChange={handleChange} />
         </form>
       </div>
       <MyRoutines

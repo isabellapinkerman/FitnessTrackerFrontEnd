@@ -36,13 +36,18 @@ body {
 }
 
 .routines{
-  width: fit-content;
+  width: fill;
+  align-items: center;
 }
 .routineBox {
   border: 1px solid rgb(76,80,82);
   background-color: grey;
   padding: 10px;
   margin: 30px 30px;
+  border-radius: 10px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .routineInfo {
@@ -50,13 +55,27 @@ body {
   background-color: rgba(176, 180, 180, 0.598);
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
+  height:max-content;
+  width: 300px;
 }
-
+select{
+  max-width: 270px;
+}
 .activity{
   border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
+}
+.activityBox{
+  display: flex;
+  flex-flow: nowrap;
+}
+
+.editBox{
+  width: 450px;
 }
 
 .noActivity{
@@ -64,6 +83,8 @@ body {
   background-color: lightgray;
   padding: 10px;
   margin: 10px;
+  display: flex;
+  align-self: baseline;
 }
 
 .buttonGroup{
@@ -116,6 +137,15 @@ Button{
 .searchBar{
 margin: 5px;
 padding: 5px;
+background-color: #252c2e;
+border: 2px solid #1a1a20;
+color: #bcb7b8;
+font-family: Copperplate;
+font-size: 15px;
+}
+
+.searchInput{
+  width: 400px;
 }
 
 .activityPage{

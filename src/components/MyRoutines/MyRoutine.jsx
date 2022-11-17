@@ -94,6 +94,7 @@ const MyRoutine = ({
           </div>
           <button onClick={handleChangeDeleteRoutine}>Delete Routine</button>
         </div>
+        <div className="editBox">
         <div className="routineInfo">
           <div>Routine Edit</div>
           <div>{message}</div>
@@ -120,7 +121,6 @@ const MyRoutine = ({
             </div>
           </form>
         </div>
-
         <div className="routineInfo">
           <div>Attach Activity to Routine</div>
           <form onSubmit={handleClickSubmit}>
@@ -144,7 +144,8 @@ const MyRoutine = ({
             <button type="submit">Submit</button>
           </form>
         </div>
-
+</div>
+<div className="activityBox">
         <div className="activities">
           {routine.activities.length ? (
             routine.activities.map((activity) => {
@@ -162,6 +163,7 @@ const MyRoutine = ({
           ) : (
             <div className="noActivity">This routine has no activity.</div>
           )}
+        </div>
         </div>
       </div>
     </>

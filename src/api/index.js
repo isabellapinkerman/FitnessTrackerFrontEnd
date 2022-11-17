@@ -47,7 +47,7 @@ export async function getUserData(token) {
 }
 //^^^ not checked
 
-export async function getPublicUserRoutines(username, token) {
+export async function getPublicRoutinesByUser(username, token) {
   const options = {};
   if (token) {
     options.headers = {

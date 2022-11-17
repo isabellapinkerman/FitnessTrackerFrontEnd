@@ -8,7 +8,7 @@ import {
 import {
   getAllActivities,
   getAllPublicRoutines,
-  getPublicUserRoutines,
+  getPublicRoutinesByUser,
   getUserData,
 } from "../api";
 import {
@@ -28,15 +28,16 @@ const Main = () => {
   //-----------GET USER DATA------------------------------
 
   const token = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
 
-  const [user, setUser] = useState();
-  useEffect(() => {
-    async function fetchUserData() {
-      const userData = await getUserData(token);
-      setUser(userData);
-    }
-    fetchUserData();
-  }, []);
+  // const [user, setUser] = useState();
+  // useEffect(() => {
+  //   async function fetchUserData() {
+  //     const userData = await getUserData(token);
+  //     setUser(userData);
+  //   }
+  //   fetchUserData();
+  // }, []);
 
   //-----------GET ALL ROUTINES------------------------------
   const [allRoutines, setAllRoutines] = useState([]);
@@ -47,6 +48,7 @@ const Main = () => {
     }
     fetchAllPublicRoutines();
   }, []);
+
   //-----------GET ALL ACTIVITIES------------------------------
   const [allActivities, setAllActivities] = useState([]);
   useEffect(() => {
@@ -56,22 +58,6 @@ const Main = () => {
     }
     fetchAllActivities();
   }, []);
-
-  //-----------GET PUBLIC ROUTINES BY USER------------------------------
-
-  const [allPublicRoutinesByUser, setAllPublicRoutinesByUser] = useState([]);
-  useEffect(() => {
-    async function fetchAllPublicRoutinesByUser() {
-      const publicRoutinesByUser = await getPublicUserRoutines(
-        user.username,
-        token
-      );
-      setAllPublicRoutinesByUser(publicRoutinesByUser);
-    }
-    if (user) {
-      fetchAllPublicRoutinesByUser();
-    }
-  }, [user]);
 
   //-----------ROUTER------------------------------
 
@@ -85,14 +71,7 @@ const Main = () => {
         />
         <Route
           path="myRoutines"
-          element={
-            <MyRoutinesSearch
-              allPublicRoutinesByUser={allPublicRoutinesByUser}
-              setAllPublicRoutinesByUser={setAllPublicRoutinesByUser}
-              token={token}
-              user={user}
-            />
-          }
+          element={<MyRoutinesSearch username={username} token={token} />}
         />
         <Route
           path="activities"

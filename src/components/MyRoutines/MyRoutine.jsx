@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { deleteRoutine, updateRoutine } from "../../api";
-import { Link } from "react-router-dom";
 
-const MyRoutine = ({
-  myRoutine,
-  token,
-  allPublicRoutinesByUser,
-  setAllPublicRoutinesByUser,
-}) => {
+const MyRoutine = ({ myRoutines, setMyRoutines, myRoutine, token }) => {
+  const [routine, setRoutine] = useState(myRoutine);
+
   const [message, setMessage] = useState(
     "Please enter routine name and description"
   );
 
-  function handleChangeDelete() {
-    async function deleteUserRoutine() {
-      const deletedRoutine = await deleteRoutine(myRoutine.id, token);
-      console.log(deletedRoutine);
+  async function handleChangeDelete() {
+    const deletedRoutine = await deleteRoutine(myRoutine.id, token);
+    console.log(deletedRoutine);
+
+    if (deletedRoutine.success) {
+      myRoutines = myRoutines.filter(
+        (routine) => routine.id !== deletedRoutine.id
+      );
+
+      setMyRoutines(myRoutines);
     }
-    deleteUserRoutine();
   }
 
   async function handleSubmitEdit(event) {
@@ -42,8 +43,14 @@ const MyRoutine = ({
     if (!updatedRoutine.error) {
       event.target[0].value = null;
       event.target[1].value = null;
+
+      routine.name = updatedRoutine.name;
+      routine.goal = updatedRoutine.goal;
+      routine.isPublic = updatedRoutine.isPublic;
+
+      setRoutine(routine);
+
       setMessage(`You've successfully updated the routine`);
-      setAllPublicRoutinesByUser([...allPublicRoutinesByUser, updatedRoutine]);
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
@@ -54,12 +61,12 @@ const MyRoutine = ({
       <div className="routineBox">
         <div className="routineInfo">
           <div>Routine Info</div>
-          <div>{`Created By: ${myRoutine.creatorName}`}</div>
-          <div>{`Name: ${myRoutine.name}`}</div>
-          <div>{`Goal: ${myRoutine.goal}`}</div>
+          <div>{`Created By: ${routine.creatorName}`}</div>
+          <div>{`Name: ${routine.name}`}</div>
+          <div>{`Goal: ${routine.goal}`}</div>
           <div>
             Privacy Setting:{" "}
-            {myRoutine.isPublic ? <span>Public</span> : <span>Private</span>}
+            {routine.isPublic ? <span>Public</span> : <span>Private</span>}
           </div>
           <button onClick={handleChangeDelete}>Delete Routine</button>
         </div>
@@ -91,8 +98,8 @@ const MyRoutine = ({
         </div>
 
         <div className="activities">
-          {myRoutine.activities.length ? (
-            myRoutine.activities.map((activity) => {
+          {routine.activities.length ? (
+            routine.activities.map((activity) => {
               return (
                 <div className="activity" key={`activity-${activity.id}`}>
                   <div>{`ID: ${activity.id}`}</div>

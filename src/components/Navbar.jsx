@@ -6,6 +6,7 @@ const Navbar = () => {
 
 function handleClick(){
   localStorage.removeItem("token")
+  localStorage.removeItem("username")
   navigate('/')
 }
 

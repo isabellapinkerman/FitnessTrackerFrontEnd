@@ -1,7 +1,7 @@
 import React from "react";
 import MyRoutine from "./MyRoutine";
 
-const MyRoutines = ({ myRoutines, token, allPublicRoutinesByUser, setAllPublicRoutinesByUser }) => {
+const MyRoutines = ({ myRoutines, token, setMyRoutines }) => {
   return (
     <>
       <div>
@@ -11,7 +11,10 @@ const MyRoutines = ({ myRoutines, token, allPublicRoutinesByUser, setAllPublicRo
               return (
                 <MyRoutine
                   key={`myRoutine-${myRoutine.id}`}
-                  myRoutine={myRoutine} token={token} allPublicRoutinesByUser={allPublicRoutinesByUser} setAllPublicRoutinesByUser={setAllPublicRoutinesByUser}
+                  myRoutine={myRoutine}
+                  token={token}
+                  myRoutines={myRoutines}
+                  setMyRoutines={setMyRoutines}
                 />
               );
             })

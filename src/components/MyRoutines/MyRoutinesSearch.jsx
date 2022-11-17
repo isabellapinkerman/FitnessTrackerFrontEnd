@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import MyRoutines from "./MyRoutines";
+import { getPublicRoutinesByUser } from "../../api";
 
-const MyRoutinesSearch = ({ allPublicRoutinesByUser, setAllPublicRoutinesByUser,token }) => {
-
-    console.log(allPublicRoutinesByUser)
-    console.log(token)
-  const [myRoutines, setMyRoutines] = useState(allPublicRoutinesByUser);
+const MyRoutinesSearch = ({ username, token }) => {
+  const [myRoutines, setMyRoutines] = useState([]);
 
   useEffect(() => {
-    setAllPublicRoutinesByUser(allPublicRoutinesByUser);
-  }, [allPublicRoutinesByUser]);
+    async function fetchAllPublicRoutinesByUser() {
+      const allMyRoutines = await getPublicRoutinesByUser(username, token);
+
+      setMyRoutines(allMyRoutines);
+    }
+    fetchAllPublicRoutinesByUser();
+  }, []);
 
   const handleChange = (input) => {
     input.preventDefault();
@@ -18,7 +21,7 @@ const MyRoutinesSearch = ({ allPublicRoutinesByUser, setAllPublicRoutinesByUser,
 
   const searchRoutines = (searchValue) => {
     if (searchValue !== "") {
-      const filteredMyRoutines = allPublicRoutinesByUser.filter((myRoutine) => {
+      const filteredMyRoutines = myRoutines.filter((myRoutine) => {
         return Object.values(myRoutine)
           .join("")
           .toLowerCase()
@@ -26,19 +29,23 @@ const MyRoutinesSearch = ({ allPublicRoutinesByUser, setAllPublicRoutinesByUser,
       });
       setMyRoutines(filteredMyRoutines);
     } else {
-        setMyRoutines(allPublicRoutinesByUser);
+      setMyRoutines(myRoutines);
     }
   };
 
   return (
     <>
-    <div className="searchBar">
-      <form>
-        <label htmlFor="search"> Search: </label>
-        <input type="text" onChange={handleChange} />
-      </form>
+      <div className="searchBar">
+        <form>
+          <label htmlFor="search"> Search: </label>
+          <input type="text" onChange={handleChange} />
+        </form>
       </div>
-      <MyRoutines myRoutines={myRoutines} token={token} allPublicRoutinesByUser={allPublicRoutinesByUser} setAllPublicRoutinesByUser={setAllPublicRoutinesByUser}/>
+      <MyRoutines
+        myRoutines={myRoutines}
+        setMyRoutines={setMyRoutines}
+        token={token}
+      />
     </>
   );
 };

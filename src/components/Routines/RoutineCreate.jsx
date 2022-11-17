@@ -24,7 +24,9 @@ const RoutineCreate = ({ allRoutines, setAllRoutines, token }) => {
       event.target[0].value = null;
       event.target[1].value = null;
       setMessage(`You've successfully created a new routine`);
-      setAllRoutines([...allRoutines, createdRoutine]);
+      if (createdRoutine.isPublic) {
+        setAllRoutines([...allRoutines, createdRoutine]);
+      }
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }

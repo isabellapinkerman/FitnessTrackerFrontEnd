@@ -43,7 +43,7 @@ const Activity = ({ activity, token }) => {
           <div>{`Description: ${activityEdit.description}`}</div>
         </div>
         <div>
-          {token ? (
+          {localStorage.getItem("token") ? (
             <div className="routineInfo">
               <div>Activity Edit</div>
               <div>{message}</div>

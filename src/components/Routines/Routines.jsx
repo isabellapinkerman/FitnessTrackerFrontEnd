@@ -6,7 +6,7 @@ const Routines = ({ routines, token }) => {
   return (
     <>
       <div>
-        {token ? (
+        {localStorage.getItem("token") ? (
           <Link to={"/createRoutine"}>
             <button>Create Routine</button>
           </Link>

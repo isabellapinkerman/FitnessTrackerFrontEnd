@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import MyRoutines from "./MyRoutines";
 import { getPublicRoutinesByUser } from "../../api";
 
-const MyRoutinesSearch = ({ username, token }) => {
+const MyRoutinesSearch = ({ token }) => {
   const [myRoutines, setMyRoutines] = useState([]);
 
   useEffect(() => {
     async function fetchAllPublicRoutinesByUser() {
-      const allMyRoutines = await getPublicRoutinesByUser(username, token);
+      const allMyRoutines = await getPublicRoutinesByUser(localStorage.getItem("username"), localStorage.getItem("token"));
 
       setMyRoutines(allMyRoutines);
     }

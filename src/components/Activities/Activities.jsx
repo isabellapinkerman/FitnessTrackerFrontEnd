@@ -6,7 +6,7 @@ const Activities = ({ activities, setActivities, token }) => {
   return (
     <>
       <div>
-        {token ? (
+        {localStorage.getItem("token") ? (
           <Link to={"/createActivity"}>
             <button className="createActivity">Create Activity</button>
           </Link>

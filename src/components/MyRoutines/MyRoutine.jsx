@@ -19,21 +19,28 @@ const MyRoutine = ({
   return (
     <>
       <div className="rbMyRoutineCard">
+        <div id="rbRoutineTitle">Routine:</div>
         <div className="rbMyRoutineSubCard">
-          <div>Routine Info</div>
-          <div>{`Created By: ${myRoutine.creatorName}`}</div>
-          <div>{`Name: ${routineInfo.name}`}</div>
-          <div>{`Goal: ${routineInfo.goal}`}</div>
-          <div>
-            Privacy Setting:{" "}
-            {routineInfo.isPublic ? <span>Public</span> : <span>Private</span>}
+          <div className="rbMyRoutineCardTitle">Routine Info</div>
+          <div className="rbMyRoutine">
+            <div>{`Created By: ${myRoutine.creatorName}`}</div>
+            <div>{`Name: ${routineInfo.name}`}</div>
+            <div>{`Goal: ${routineInfo.goal}`}</div>
+            <div>
+              Privacy Setting:{" "}
+              {routineInfo.isPublic ? (
+                <span>Public</span>
+              ) : (
+                <span>Private</span>
+              )}
+            </div>
+            <MyRoutineDelete
+              token={token}
+              myRoutine={myRoutine}
+              myRoutines={myRoutines}
+              setMyRoutines={setMyRoutines}
+            />
           </div>
-          <MyRoutineDelete
-            token={token}
-            myRoutine={myRoutine}
-            myRoutines={myRoutines}
-            setMyRoutines={setMyRoutines}
-          />
           <MyRoutineUpdate
             token={token}
             routineInfo={routineInfo}
@@ -49,22 +56,25 @@ const MyRoutine = ({
           />{" "}
         </div>
         <div className="rbAllRoutineActivities">
-          {activities.length ? (
-            activities.map((activity) => {
-              return (
-                <MyRoutineActivities
-                  key={`activity-${activity.id}`}
-                  token={token}
-                  activity={activity}
-                  activities={activities}
-                  setActivities={setActivities}
-                />
-              );
-            })
-          ) : (
-            <div className="">This routine has no activity.</div>
-          )}
-        </div>{" "}
+          <div id="rbActivityTitle">Activities:</div>
+          <div id="rbActivitiesList">
+            {activities.length ? (
+              activities.map((activity) => {
+                return (
+                  <MyRoutineActivities
+                    key={`activity-${activity.id}`}
+                    token={token}
+                    activity={activity}
+                    activities={activities}
+                    setActivities={setActivities}
+                  />
+                );
+              })
+            ) : (
+              <div className="">This routine has no activity.</div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

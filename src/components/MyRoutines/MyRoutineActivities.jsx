@@ -15,7 +15,6 @@ const MyRoutineActivities = ({
         <div className="rbActivityCard">
           <div className="rbActivitySubCard">
             <div className="rbActivityInfo">
-              <div id="rbActivityName">Activity</div>
               <div>{`ID: ${activity.id}`}</div>
               <div>{`Name: ${activity.name}`}</div>
               <div>{`Description: ${activity.description}`}</div>

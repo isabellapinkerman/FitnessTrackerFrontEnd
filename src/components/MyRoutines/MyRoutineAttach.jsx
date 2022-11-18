@@ -52,7 +52,7 @@ const MyRoutineAttach = ({
         (activity) => activity.id == activityId
       );
 
-      console.log(activity)
+      console.log(activity);
       setActivities([...activities, activity]);
     } else {
       setAttachActivityMessage("Activity already exists in routine.");
@@ -61,8 +61,9 @@ const MyRoutineAttach = ({
 
   return (
     <>
-      <div className="">
-        <div>Attach Activity to Routine</div>
+      {" "}
+      <div className="rbMyRoutineCardTitle">Attach Activity to Routine</div>
+      <div className="rbMyRoutineAttach">
         <div>{attachActivityMessage}</div>
         <form onSubmit={handleClickAttachActivity}>
           <select>
@@ -82,7 +83,9 @@ const MyRoutineAttach = ({
             <label htmlFor="duration">Duration: </label>
             <input type="number" min="0"></input>
           </div>
-          <button className="rbSubmitButton" type="submit">Submit</button>
+          <button className="rbSubmitButton" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </>

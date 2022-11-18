@@ -38,33 +38,31 @@ const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
 
   return (
     <>
-      <div className="">
-        <div className="">
-          <div>Edit Routine</div>
-          <div>{message}</div>
-          <form className="" onSubmit={handleSubmitEditRoutine}>
-            <div>
-              <label htmlFor="name">Name: </label>
-              <input type="text" required></input>
-            </div>
-            <div>
-              <label htmlFor="goal">Goal: </label>
-              <input type="text" required></input>
-            </div>
-            <div>
-              Privacy Setting:
-              <select>
-                <option>Public</option>
-                <option>Private</option>
-              </select>
-            </div>
-            <div>
-              <button className="rbSubmitButton" type="submit">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="rbMyRoutineCardTitle">Edit Routine</div>
+      <div className="rbMyRoutineUpdate">
+        <div>{message}</div>
+        <form className="" onSubmit={handleSubmitEditRoutine}>
+          <div>
+            <label htmlFor="name">Name: </label>
+            <input type="text" required></input>
+          </div>
+          <div>
+            <label htmlFor="goal">Goal: </label>
+            <input type="text" required></input>
+          </div>
+          <div>
+            Privacy Setting:
+            <select>
+              <option>Public</option>
+              <option>Private</option>
+            </select>
+          </div>
+          <div>
+            <button className="rbSubmitButton" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

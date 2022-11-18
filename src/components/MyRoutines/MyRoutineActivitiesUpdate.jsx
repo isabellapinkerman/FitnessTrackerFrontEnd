@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { updateRoutineActivity } from "../../api";
 
 const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
+
+  const[messageCountDuration, setMessageCountDuration] = useState("Change count or duration")
   async function handleSubmitEditRoutineActivity(event) {
     event.preventDefault();
     let count = event.target[0].value;
@@ -23,16 +25,19 @@ const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
     );
 
     if (!updatedRoutineActivity.error) {
+      setMessageCountDuration(`Count and duration set`)
       console.log(`Count set to ${count}. Duration set to ${duration}`);
+    } else {
+      setMessageCountDuration(`Count or duration limit exceeded.`)
+      console.log(`Count or duration limit exceeded.`)
     }
 
     setActivityInfo(updatedRoutineActivity);
-
-    console.log(updatedRoutineActivity);
   }
 
   return (
     <>
+    <div>{messageCountDuration}</div>
       <form onSubmit={handleSubmitEditRoutineActivity}>
         <div>
           <label htmlFor="count">Count: </label>

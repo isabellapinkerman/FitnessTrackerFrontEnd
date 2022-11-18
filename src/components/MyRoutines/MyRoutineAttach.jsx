@@ -5,8 +5,8 @@ const MyRoutineAttach = ({
   allActivities,
   routineInfo,
   token,
-  setMyRoutines,
-  myRoutines,
+  activities,
+  setActivities,
 }) => {
   const [attachActivityMessage, setAttachActivityMessage] = useState(
     "Select an activity then add a duration and count. "
@@ -44,7 +44,16 @@ const MyRoutineAttach = ({
       } else {
         setAttachActivityMessage("Activity attached to routine");
       }
-      console.log(`Activity with ID ${activityId} is attached to routine with ID ${routineId}`)
+      console.log(
+        `Activity with ID ${activityId} is attached to routine with ID ${routineId}`
+      );
+
+      let activity = allActivities.filter(
+        (activity) => activity.id == activityId
+      );
+
+      console.log(activity)
+      setActivities([...activities, activity]);
     } else {
       setAttachActivityMessage("Activity already exists in routine.");
     }

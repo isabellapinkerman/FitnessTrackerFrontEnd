@@ -14,6 +14,7 @@ const MyRoutine = ({
   allActivities,
 }) => {
   const [routineInfo, setRoutineInfo] = useState(myRoutine);
+  const [activities, setActivities] = useState(myRoutine.activities);
 
   return (
     <>
@@ -49,19 +50,21 @@ const MyRoutine = ({
             token={token}
             routineInfo={routineInfo}
             allActivities={allActivities}
-            myRoutines={myRoutines}
-            setMyRoutines={setMyRoutines}
+            activities={activities}
+            setActivities={setActivities}
           />
         </div>
         <div className="activityBox">
           <div className="activities">
-            {myRoutine.activities.length ? (
-              myRoutine.activities.map((activity) => {
+            {activities.length ? (
+              activities.map((activity) => {
                 return (
                   <MyRoutineActivities
                     key={`activity-${activity.id}`}
-                    activity={activity}
                     token={token}
+                    activity={activity}
+                    activities={activities}
+                    setActivities={setActivities}
                   />
                 );
               })

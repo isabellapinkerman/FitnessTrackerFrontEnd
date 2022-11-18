@@ -1,7 +1,12 @@
 import React from "react";
 import { deleteRoutineActivity } from "../../api";
 
-const MyRoutineActivitiesDelete = ({activity, token}) => {
+const MyRoutineActivitiesDelete = ({
+  token,
+  activity,
+  activities,
+  setActivities
+}) => {
   async function handleClickDeleteActivity(event) {
     event.preventDefault();
     let routineActivityId = activity.routineActivityId;
@@ -10,11 +15,15 @@ const MyRoutineActivitiesDelete = ({activity, token}) => {
       routineActivityId,
       token
     );
-    
+
     if (deletedRoutineActivity) {
       console.log(
         `Activity with ID: ${activity.id} was removed from routine with ID: ${activity.routineId}`
       );
+      activities = activities.filter(
+        (activity) => activity.routineActivityId !== deletedRoutineActivity.id
+      );
+      setActivities(activities)
     }
   }
 

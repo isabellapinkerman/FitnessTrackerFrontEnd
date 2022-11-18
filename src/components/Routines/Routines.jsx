@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Routine from "./Routine";
+import { Routine } from "..";
 
-const Routines = ({ routines, token }) => {
+const Routines = ({ routines }) => {
   return (
     <>
       <div className="createButton">

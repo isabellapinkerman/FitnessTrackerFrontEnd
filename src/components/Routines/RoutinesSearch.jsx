@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Routines from "./Routines";
+import { Routines } from "..";
 
 const RoutinesSearch = ({ allRoutines, token }) => {
   const [routines, setRoutines] = useState(allRoutines);
@@ -35,7 +35,7 @@ const RoutinesSearch = ({ allRoutines, token }) => {
           <input className="searchInput" type="text" onChange={handleChange} />
         </form>
       </div>
-      <Routines routines={routines} token={token} />
+      <Routines routines={routines} />
     </>
   );
 };

@@ -38,7 +38,7 @@ const Activity = ({ activity, token }) => {
     <>
       <div className="activityBox">
         <div className="activityInfo">
-          <div className="activityId">{`Activity ${activity.id}`}</div>
+          <div className="activityId">{`Activity #${activity.id}`}</div>
           <div className="activityName">🎖️ {activityEdit.name}</div>
           <div className="activityDescription">{`Description: ${activityEdit.description}`}</div>
         </div>

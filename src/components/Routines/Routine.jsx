@@ -6,7 +6,7 @@ const Routine = ({ routine }) => {
       <div className="routineBox">
         <div className="routineInfo">
           <div className="topRow">
-          <div className="routineId">{`Routine ${routine.id}`}</div>
+          <div className="routineId">{`Routine #${routine.id}`}</div>
           <div className="creatorName">👤{routine.creatorName}</div>
           </div>
           <div className="routineName">{routine.name}</div>
@@ -22,7 +22,7 @@ const Routine = ({ routine }) => {
                   routine={routine}
                 >
                   {" "}
-                  <div className="activityId">{`Activity ${activity.id}`}</div>
+                  <div className="activityId">{`Activity #${activity.id}`}</div>
                   <div>
                     {activity ? (
                       <div>

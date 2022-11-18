@@ -3,7 +3,7 @@ import {
   MyRoutineActivities,
   MyRoutineAttach,
   MyRoutineDelete,
-  MyRoutineEdit,
+  MyRoutineUpdate,
 } from "..";
 
 const MyRoutine = ({
@@ -13,7 +13,7 @@ const MyRoutine = ({
   token,
   allActivities,
 }) => {
-  const [routine, setRoutine] = useState(myRoutine);
+  const [routineInfo, setRoutineInfo] = useState(myRoutine);
 
   return (
     <>
@@ -21,32 +21,42 @@ const MyRoutine = ({
         <div>
           <div className="routineInfo">
             <div>Routine Info</div>
-            <div>{`Created By: ${routine.creatorName}`}</div>
-            <div>{`Name: ${routine.name}`}</div>
-            <div>{`Goal: ${routine.goal}`}</div>
+            <div>{`Created By: ${myRoutine.creatorName}`}</div>
+            <div>{`Name: ${routineInfo.name}`}</div>
+            <div>{`Goal: ${routineInfo.goal}`}</div>
             <div>
               Privacy Setting:{" "}
-              {routine.isPublic ? <span>Public</span> : <span>Private</span>}
+              {routineInfo.isPublic ? (
+                <span>Public</span>
+              ) : (
+                <span>Private</span>
+              )}
             </div>
             <MyRoutineDelete
-              myRoutines={myRoutines}
-              myRoutine={myRoutine}
               token={token}
+              myRoutine={myRoutine}
+              myRoutines={myRoutines}
               setMyRoutines={setMyRoutines}
             />
           </div>
-          <MyRoutineEdit
-            routine={routine}
-            myRoutine={myRoutine}
+          <MyRoutineUpdate
             token={token}
+            routineInfo={routineInfo}
+            myRoutine={myRoutine}
+            setRoutineInfo={setRoutineInfo}
           />
-
-          <MyRoutineAttach allActivities={allActivities} routine={routine} token={token} setMyRoutines={setMyRoutines}/>
+          <MyRoutineAttach
+            token={token}
+            routineInfo={routineInfo}
+            allActivities={allActivities}
+            myRoutines={myRoutines}
+            setMyRoutines={setMyRoutines}
+          />
         </div>
         <div className="activityBox">
           <div className="activities">
-            {routine.activities.length ? (
-              routine.activities.map((activity) => {
+            {myRoutine.activities.length ? (
+              myRoutine.activities.map((activity) => {
                 return (
                   <MyRoutineActivities
                     key={`activity-${activity.id}`}

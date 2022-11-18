@@ -9,11 +9,14 @@ export { default as ActivityCreate } from "./Activities/ActivityCreate";
 
 export { default as MyRoutine } from "./MyRoutines/MyRoutine";
 export { default as MyRoutineActivities } from "./MyRoutines/MyRoutineActivities";
+export { default as MyRoutineActivitiesDelete } from "./MyRoutines/MyRoutineActivitiesDelete";
+export { default as MyRoutineActivitiesUpdate } from "./MyRoutines/MyRoutineActivitiesUpdate";
 export { default as MyRoutineAttach } from "./MyRoutines/MyRoutineAttach";
 export { default as MyRoutineDelete } from "./MyRoutines/MyRoutineDelete";
-export { default as MyRoutineEdit } from "./MyRoutines/MyRoutineEdit";
 export { default as MyRoutines } from "./MyRoutines/MyRoutines";
 export { default as MyRoutinesSearch } from "./MyRoutines/MyRoutinesSearch";
+export { default as MyRoutineUpdate } from "./MyRoutines/MyRoutineUpdate";
+
 
 //---------------ROUTINES FOLDER---------------
 

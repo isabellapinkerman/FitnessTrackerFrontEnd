@@ -10,6 +10,7 @@ const MyRoutineDelete = ({ myRoutines, myRoutine, token, setMyRoutines }) => {
         (routine) => routine.id !== deletedRoutine.id
       );
       setMyRoutines(myRoutines);
+      console.log(`Routine with ID ${myRoutine.id} was deleted.`)
     }
   }
 

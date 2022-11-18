@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { updateRoutine } from "../../api";
 
-const MyRoutineEdit = ({ routine, myRoutine, token }) => {
+const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
   const [message, setMessage] = useState("Enter routine name and description.");
 
   async function handleSubmitEditRoutine(event) {
@@ -9,7 +9,7 @@ const MyRoutineEdit = ({ routine, myRoutine, token }) => {
     const name = event.target[0].value;
     const goal = event.target[1].value;
     let isPublic = event.target[2].value;
-    
+
     if (isPublic === "Public") {
       isPublic = true;
     } else {
@@ -26,12 +26,9 @@ const MyRoutineEdit = ({ routine, myRoutine, token }) => {
     if (!updatedRoutine.error) {
       event.target[0].value = null;
       event.target[1].value = null;
-
-      routine.name = updatedRoutine.name;
-      routine.goal = updatedRoutine.goal;
-      routine.isPublic = updatedRoutine.isPublic;
-
+      setRoutineInfo(updatedRoutine);
       setMessage(`You've successfully updated the routine`);
+      console.log(`Routine with ID ${myRoutine.id} was updated and set to ${event.target[2].value}.`)
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
@@ -71,4 +68,4 @@ const MyRoutineEdit = ({ routine, myRoutine, token }) => {
   );
 };
 
-export default MyRoutineEdit;
+export default MyRoutineUpdate;

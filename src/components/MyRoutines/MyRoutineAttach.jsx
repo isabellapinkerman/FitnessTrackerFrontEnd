@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import { attachActivityToRoutine } from "../../api";
 
-const MyRoutineAttach = ({ allActivities, routine, token, setMyRoutines }) => {
+const MyRoutineAttach = ({
+  allActivities,
+  routineInfo,
+  token,
+  setMyRoutines,
+  myRoutines,
+}) => {
   const [attachActivityMessage, setAttachActivityMessage] = useState(
     "Select an activity then add a duration and count. "
   );
 
   async function handleClickAttachActivity(event) {
     event.preventDefault();
-    let routineId = routine.id;
+    let routineId = routineInfo.id;
     let activityId = event.target[0].value;
     let count = event.target[1].value;
     let duration = event.target[2].value;
+
+    if (count === "") {
+      count = 0;
+    }
+    if (duration === "") {
+      duration = 0;
+    }
+
     const attachedActivity = await attachActivityToRoutine(
       token,
       routineId,
@@ -21,8 +35,16 @@ const MyRoutineAttach = ({ allActivities, routine, token, setMyRoutines }) => {
     );
 
     if (!attachedActivity.error) {
-      setMyRoutines(myRoutines);
-      setAttachActivityMessage("Activity attached to routine");
+      event.target[1].value = null;
+      event.target[2].value = null;
+      if (count === 0 || duration === 0) {
+        setAttachActivityMessage(
+          `Activity set but count is set to ${count} while duration is set to ${duration}.`
+        );
+      } else {
+        setAttachActivityMessage("Activity attached to routine");
+      }
+      console.log(`Activity with ID ${activityId} is attached to routine with ID ${routineId}`)
     } else {
       setAttachActivityMessage("Activity already exists in routine.");
     }
@@ -45,11 +67,11 @@ const MyRoutineAttach = ({ allActivities, routine, token, setMyRoutines }) => {
           </select>
           <div>
             <label htmlFor="count">Count: </label>
-            <input type="number" min="0" required></input>
+            <input type="number" min="0"></input>
           </div>
           <div>
             <label htmlFor="duration">Duration: </label>
-            <input type="number" min="0" required></input>
+            <input type="number" min="0"></input>
           </div>
           <button type="submit">Submit</button>
         </form>

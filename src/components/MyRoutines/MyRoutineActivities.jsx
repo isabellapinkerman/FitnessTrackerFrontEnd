@@ -2,9 +2,8 @@ import React from "react";
 import { deleteRoutineActivity, updateRoutineActivity } from "../../api";
 
 const MyRoutineActivities = ({ activity, token }) => {
-
   async function handleClickDeleteActivity(event) {
-    event.preventDefault()
+    event.preventDefault();
     let routineActivityId = activity.routineActivityId;
     let deletedRoutineActivity = await deleteRoutineActivity(
       routineActivityId,
@@ -18,14 +17,21 @@ const MyRoutineActivities = ({ activity, token }) => {
   }
 
   async function handleSubmitEditRoutineActivity(event) {
-    event.preventDefault()
+    event.preventDefault();
     let count = event.target[0].value;
     let duration = event.target[1].value;
     let routineActivityId = activity.routineActivityId;
 
-    let updatedRoutineActivity = await updateRoutineActivity(token, count, duration, routineActivityId);
+    let updatedRoutineActivity = await updateRoutineActivity(
+      token,
+      count,
+      duration,
+      routineActivityId
+    );
 
-    console.log(updatedRoutineActivity);
+    if(!updatedRoutineActivity.error){
+      console.log(`Count set to ${count}. Duration set to ${duration}`)
+    }
   }
 
   return (

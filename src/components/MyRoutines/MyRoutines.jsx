@@ -1,5 +1,5 @@
 import React from "react";
-import MyRoutine from "./MyRoutine";
+import { MyRoutine } from "..";
 
 const MyRoutines = ({ myRoutines, token, setMyRoutines, allActivities }) => {
   return (

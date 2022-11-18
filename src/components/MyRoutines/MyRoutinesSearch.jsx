@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MyRoutines from "./MyRoutines";
+import { MyRoutines } from "..";
 import { getPublicRoutinesByUser } from "../../api";
 
 const MyRoutinesSearch = ({ token, allActivities }) => {

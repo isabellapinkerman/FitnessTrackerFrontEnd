@@ -5,7 +5,7 @@ const MyRoutineActivitiesDelete = ({
   token,
   activity,
   activities,
-  setActivities
+  setActivities,
 }) => {
   async function handleClickDeleteActivity(event) {
     event.preventDefault();
@@ -23,13 +23,15 @@ const MyRoutineActivitiesDelete = ({
       activities = activities.filter(
         (activity) => activity.routineActivityId !== deletedRoutineActivity.id
       );
-      setActivities(activities)
+      setActivities(activities);
     }
   }
 
   return (
     <>
-      <button onClick={handleClickDeleteActivity}>Delete Activity</button>{" "}
+      <button className="rbDeleteButton" onClick={handleClickDeleteActivity}>
+        Delete Activity
+      </button>
     </>
   );
 };

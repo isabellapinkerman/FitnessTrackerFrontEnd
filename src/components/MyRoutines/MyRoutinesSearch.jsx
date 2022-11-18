@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MyRoutines } from "..";
 import { getPublicRoutinesByUser } from "../../api";
+import "./CSS/myRoutines.css"
 
 const MyRoutinesSearch = ({ token, allActivities }) => {
   const [myRoutines, setMyRoutines] = useState([]);
@@ -35,10 +36,10 @@ const MyRoutinesSearch = ({ token, allActivities }) => {
 
   return (
     <>
-      <div className="searchBar">
+      <div className="">
         <form>
           <label htmlFor="search"> Search: </label>
-          <input className="searchInput" type="text" onChange={handleChange} />
+          <input className="" type="text" onChange={handleChange} />
         </form>
       </div>
       <MyRoutines

@@ -5,7 +5,7 @@ const MyRoutines = ({ myRoutines, token, setMyRoutines, allActivities }) => {
   return (
     <>
       <div>
-        <div className="routines">
+        <div className="">
           {myRoutines.length ? (
             myRoutines.map((myRoutine) => {
               return (

@@ -11,19 +11,25 @@ const MyRoutineActivities = ({
 
   return (
     <>
-      <div className="activity">
-        <div>Activity</div>
-        <div>{`ID: ${activity.id}`}</div>
-        <div>{`Name: ${activity.name}`}</div>
-        <div>{`Description: ${activity.description}`}</div>
-        <div>{`Count: ${activityInfo.count}`}</div>
-        <div>{`Duration: ${activityInfo.duration}`}</div>
-        <MyRoutineActivitiesDelete
-          token={token}
-          activity={activity}
-          activities={activities}
-          setActivities={setActivities}
-        />
+      <div className="rbRoutineActivitiesCard">
+        <div className="rbActivityCard">
+          <div className="rbActivitySubCard">
+            <div className="rbActivityInfo">
+              <div id="rbActivityName">Activity</div>
+              <div>{`ID: ${activity.id}`}</div>
+              <div>{`Name: ${activity.name}`}</div>
+              <div>{`Description: ${activity.description}`}</div>
+              <div>{`Count: ${activityInfo.count}`}</div>
+              <div>{`Duration: ${activityInfo.duration}`}</div>
+            </div>
+            <MyRoutineActivitiesDelete
+              token={token}
+              activity={activity}
+              activities={activities}
+              setActivities={setActivities}
+            />
+          </div>
+        </div>
         <MyRoutineActivitiesUpdate
           token={token}
           activity={activity}

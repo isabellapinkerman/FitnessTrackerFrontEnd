@@ -61,7 +61,7 @@ const MyRoutineAttach = ({
 
   return (
     <>
-      <div className="routineInfo">
+      <div className="">
         <div>Attach Activity to Routine</div>
         <div>{attachActivityMessage}</div>
         <form onSubmit={handleClickAttachActivity}>
@@ -82,7 +82,7 @@ const MyRoutineAttach = ({
             <label htmlFor="duration">Duration: </label>
             <input type="number" min="0"></input>
           </div>
-          <button type="submit">Submit</button>
+          <button className="rbSubmitButton" type="submit">Submit</button>
         </form>
       </div>
     </>

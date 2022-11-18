@@ -3,7 +3,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-color: rgb(188,183,184);
+  background-color: rgb(188, 183, 184);
 }
 
 #Navbar {
@@ -26,94 +26,94 @@ body {
 }
 
 #Footer {
-  background-color: rgb(91,92,100);
+  background-color: rgb(91, 92, 100);
 }
 
-.fitnessTracker{
+.fitnessTracker {
   color: rgb(40, 246, 125);
   font-family: Copperplate;
   font-size: 40px;
-  -webkit-text-stroke-width: .8px;
+  -webkit-text-stroke-width: 0.8px;
   -webkit-text-fill-color: rgb(19, 139, 15);
 }
 
-.routines{
+.routines {
   width: fill;
   min-width: fit-content;
   align-items: center;
 }
 .routineBox,
 .activityBox {
-  border: 1px solid rgb(76,80,82);
+  border: 1px solid rgb(76, 80, 82);
   background-color: grey;
   padding: 10px;
   margin: 30px 30px;
   border-radius: 10px;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .routineInfo,
 .activityInfo {
-  border: 1px solid rgb(91,100,99);
+  border: 1px solid rgb(91, 100, 99);
   background-color: rgba(176, 180, 180, 0.598);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  height:max-content;
+  height: max-content;
   min-width: 300px;
   max-width: fill-content;
   display: flex;
   flex-direction: column;
 }
 
-.topRow{
+.topRow {
   display: flex;
   justify-content: space-between;
 }
 
-.creatorName{
+.creatorName {
   text-decoration: underline;
-color:darkblue;
+  color: darkblue;
 }
 
-.routineName{
+.routineName {
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 5px;
 }
 
-.activityName{
+.activityName {
   font-weight: bold;
 }
 
-.routineId{
+.routineId {
   font-family: Copperplate;
   color: rgb(19, 139, 15);
   font-size: 17px;
 }
 
-.activityId{
+.activityId {
   font-family: Copperplate;
-  color:rgb(18, 100, 52)
+  color: rgb(18, 100, 52);
 }
 
-.countDuration{
+.countDuration {
   display: flex;
   justify-content: space-around;
 }
 
-select{
+select {
   max-width: 270px;
 }
 
-.activities{
+.activities {
   display: flex;
   flex-direction: column;
 }
 
-.activity{
+.activity {
   border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
@@ -121,7 +121,7 @@ select{
   border-radius: 10px;
 }
 
-.activityEditBox{
+.activityEditBox {
   border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
@@ -130,11 +130,11 @@ select{
 }
 
 .editBox,
-.activityEditBox{
+.activityEditBox {
   width: 450px;
 }
 
-.noActivity{
+.noActivity {
   border: 1px solid #939c96;
   background-color: lightgray;
   padding: 10px;
@@ -143,98 +143,96 @@ select{
   align-self: baseline;
 }
 
-.buttonGroup{
-  display: flex
+.buttonGroup {
+  display: flex;
 }
 
-.navButton:active{
+.navButton:active {
   transform: scale(1, 1);
   box-shadow: 1px 1px 5px rgb(119, 246, 172);
 }
 
-.navButton:hover{
-  transform: scale(1.1,1.1);
+.navButton:hover {
+  transform: scale(1.1, 1.1);
   box-shadow: 1px 1px 5px rgb(40, 246, 125);
 }
 
-.navButton{
-  background-color: rgb(188,183,184);
+.navButton {
+  background-color: rgb(188, 183, 184);
   border-radius: 5px;
   margin: 2px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .button,
-Button{
-  background-color: rgb(188,183,184);
+Button {
+  background-color: rgb(188, 183, 184);
   border-radius: 5px;
   margin: 2px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.message{
-
+.message {
   border-radius: 5px;
   margin: 5px;
   width: fit-content;
 }
 
-.registerForm{
-  padding: 5px;
-  margin: 5px
-}
-
-.registerPage{
+.registerForm {
   padding: 5px;
   margin: 5px;
 }
 
-.homePage{
+.registerPage {
+  padding: 5px;
+  margin: 5px;
+}
+
+.homePage {
   padding: 5px;
   margin: 5px;
   display: flex;
   flex-direction: column;
 }
 
-.homeHeader{
-  background-color: rgb(76,80,82);
-  color:#939c96;
+.homeHeader {
+  background-color: rgb(76, 80, 82);
+  color: #939c96;
   text-align: center;
   font-family: Copperplate;
   font-size: 30px;
 }
 
-.homeBody{
+.homeBody {
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
 }
 
-.benefits{
+.benefits {
   display: flex;
   flex-direction: column;
   margin-left: 15px;
 }
 
-.Benefits{
+.Benefits {
   text-align: center;
 }
 
-.highFiveImg{
-margin-right: 20px;
+.highFiveImg {
+  margin-right: 20px;
 }
 
-.searchBar{
-margin: 5px;
-padding: 5px;
-background-color: #252c2e;
-border: 2px solid #1a1a20;
-color: #bcb7b8;
-font-family: Copperplate;
-font-size: 15px;
+.searchBar {
+  margin: 5px;
+  padding: 5px;
+  background-color: #252c2e;
+  border: 2px solid #1a1a20;
+  color: #bcb7b8;
+  font-family: Copperplate;
+  font-size: 15px;
 }
 
-.searchInput{
+.searchInput {
   width: 400px;
 }
-

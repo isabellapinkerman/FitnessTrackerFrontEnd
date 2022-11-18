@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { updateRoutineActivity } from "../../api";
 
 const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
-
-  const[messageCountDuration, setMessageCountDuration] = useState("Change count or duration")
+  const [messageCountDuration, setMessageCountDuration] = useState(
+    "Change count or duration"
+  );
   async function handleSubmitEditRoutineActivity(event) {
     event.preventDefault();
     let count = event.target[0].value;
@@ -25,11 +26,11 @@ const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
     );
 
     if (!updatedRoutineActivity.error) {
-      setMessageCountDuration(`Count and duration set`)
+      setMessageCountDuration(`Count and duration set`);
       console.log(`Count set to ${count}. Duration set to ${duration}`);
     } else {
-      setMessageCountDuration(`Count or duration limit exceeded.`)
-      console.log(`Count or duration limit exceeded.`)
+      setMessageCountDuration(`Count or duration limit exceeded.`);
+      console.log(`Count or duration limit exceeded.`);
     }
 
     setActivityInfo(updatedRoutineActivity);
@@ -37,18 +38,24 @@ const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
 
   return (
     <>
-    <div>{messageCountDuration}</div>
-      <form onSubmit={handleSubmitEditRoutineActivity}>
-        <div>
-          <label htmlFor="count">Count: </label>
-          <input type="number" min="0"></input>
-        </div>
-        <div>
-          <label htmlFor="duration">Duration: </label>
-          <input type="number" min="0"></input>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <div className="rbRoutineActivityUpdateCard">
+        <div className="rbMessage">{messageCountDuration}</div>
+        <form onSubmit={handleSubmitEditRoutineActivity}>
+          <div id="rbSubmitForm">
+            <div className="rbInput">
+              <label htmlFor="count">Count: </label>
+              <input type="number" min="0"></input>
+            </div>
+            <div className="rbInput">
+              <label htmlFor="duration">Duration: </label>
+              <input type="number" min="0"></input>
+            </div>
+          </div>
+          <button className="rbSubmitButton" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </>
   );
 };

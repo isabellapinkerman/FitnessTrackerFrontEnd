@@ -28,7 +28,9 @@ const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
       event.target[1].value = null;
       setRoutineInfo(updatedRoutine);
       setMessage(`You've successfully updated the routine`);
-      console.log(`Routine with ID ${myRoutine.id} was updated and set to ${event.target[2].value}.`)
+      console.log(
+        `Routine with ID ${myRoutine.id} was updated and set to ${event.target[2].value}.`
+      );
     } else {
       setMessage(`Routine with name "${name}" already exists`);
     }
@@ -36,11 +38,11 @@ const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
 
   return (
     <>
-      <div className="editBox">
-        <div className="routineInfo">
+      <div className="">
+        <div className="">
           <div>Edit Routine</div>
           <div>{message}</div>
-          <form className="registerForm" onSubmit={handleSubmitEditRoutine}>
+          <form className="" onSubmit={handleSubmitEditRoutine}>
             <div>
               <label htmlFor="name">Name: </label>
               <input type="text" required></input>
@@ -57,7 +59,7 @@ const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
               </select>
             </div>
             <div>
-              <button className="button" type="submit">
+              <button className="rbSubmitButton" type="submit">
                 Submit
               </button>
             </div>

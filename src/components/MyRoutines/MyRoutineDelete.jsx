@@ -15,7 +15,7 @@ const MyRoutineDelete = ({ myRoutines, myRoutine, token, setMyRoutines }) => {
 
   return (
     <>
-      <button onClick={handleChangeDeleteRoutine}>Delete Routine</button>
+      <button className="rbDeleteButton" onClick={handleChangeDeleteRoutine}>Delete Routine</button>
     </>
   );
 };

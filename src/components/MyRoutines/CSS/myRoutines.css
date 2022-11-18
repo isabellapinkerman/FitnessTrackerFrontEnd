@@ -1,0 +1,106 @@
+.rbMyRoutineCard {
+  background-color: #d5dfe2;
+  border: 5px solid green;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rbMyRoutineSubCard {
+  border: 3px solid yellow;
+  flex-grow: 1;
+}
+
+.rbAllRoutineActivities {
+  border: 3px solid blue;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.rbRoutineActivitiesCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f7c77;
+  width: 600px;
+  margin: 20px;
+  border: 4px solid #0f7c77;
+  border-radius: 0px 100px 0px 100px;
+}
+
+.rbActivityCard {
+  background-color: white;
+  align-self: flex-start;
+  border-radius: 0px 0px 30px 0px;
+  margin-bottom: 15px;
+  width: 500px;
+}
+
+.rbActivitySubCard {
+  display: flex;
+  font-weight: bolder;
+  color: #0f7c77;
+  margin: 10px;
+  font-weight: 500;
+  justify-content: space-around;
+}
+
+.rbActivityInfo {
+  width: 300px;
+}
+
+#rbActivityName {
+  font-size: 20px;
+}
+
+.rbRoutineActivityUpdateCard {
+  background-color: #46a5a0;
+  color: white;
+  align-self: flex-end;
+  width: 400px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 30px 0px 0px 0px;
+}
+
+.rbMessage {
+  border: 2px solid white;
+  border-radius: 20px 0px 20px 0px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.rbSubmitButton,
+.rbDeleteButton {
+  background-color: #0f7c77;
+  color: white;
+  align-self: flex-end;
+  border: none;
+  border-radius: 0px;
+  height: 25px;
+}
+
+.rbDeleteButton:hover {
+  background-color: white;
+  border: 1px solid red;
+  color: red;
+}
+
+.rbSubmitButton:hover {
+  background-color: white;
+  border: 1px solid #0f7c77;
+  color: #0f7c77;
+}
+
+.rbSubmitButton:active,
+.rbDeleteButton:active {
+  transform: scale(1.2);
+}
+
+#rbSubmitForm {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+}
+.rbInput {
+  margin: 5px;
+}

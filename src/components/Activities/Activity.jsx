@@ -42,9 +42,8 @@ const Activity = ({ activity, token }) => {
           <div className="activityName">🎖️ {activityEdit.name}</div>
           <div className="activityDescription">{`Description: ${activityEdit.description}`}</div>
         </div>
-        <div className="activityEditBox">
           {localStorage.getItem("token") ? (
-              <div>
+              <div className="activityEditBox">
               <div className="activityId">✒️ Edit Activity Here</div>
               <div>{message}</div>
               <form className="registerForm" onSubmit={handleSubmitEdit}>
@@ -66,7 +65,6 @@ const Activity = ({ activity, token }) => {
           ) : (
             <></>
           )}
-        </div>
       </div>
     </>
   );

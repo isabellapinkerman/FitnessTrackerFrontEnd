@@ -27,7 +27,7 @@ const Activities = ({ activities, setActivities, token }) => {
             );
           })
         ) : (
-          <div>Activity Does Not Exist</div>
+          <div className="">Activity Does Not Exist</div>
         )}
       </div>
     </>

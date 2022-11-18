@@ -4,7 +4,7 @@ import { createRoutine } from "../../api";
 
 const RoutineCreate = ({ allRoutines, setAllRoutines, token }) => {
   const [message, setMessage] = useState(
-    "Please enter activity name and description"
+    "Please enter Routine name and description"
   );
 
   async function handleSubmit(event) {
@@ -34,23 +34,33 @@ const RoutineCreate = ({ allRoutines, setAllRoutines, token }) => {
 
   return (
     <>
-      <div>{message}</div>
+    <div className="createBox">
+      <div className="createBackground">
+      <div className="createMessage">{message}</div>
       <form className="registerForm" onSubmit={handleSubmit}>
+        <div className="createInput">
+          <div id="divBox">
         <label htmlFor="name">Routine Name:</label>
         <input type="text" placeholder="Enter activity name" required></input>
+        </div>
+        <div id="divBox">
         <label htmlFor="goal">Goal:</label>
         <input type="text" placeholder="Enter description" required></input>
+        </div>
         <select>
           <option>Public</option>
           <option>Private</option>
         </select>
-        <button className="button" type="submit">
+        </div>
+        <button className="createButton" type="submit">
           Submit
         </button>
       </form>
+      </div>
       <Link to="/routines">
         <button className="button">Back</button>
       </Link>
+      </div>
     </>
   );
 };

@@ -36,9 +36,9 @@ const MyRoutinesSearch = ({ token, allActivities }) => {
 
   return (
     <>
-      <div className="">
+      <div className="rbRoutineSearch">
         <form>
-          <label htmlFor="search"> Search: </label>
+          <label htmlFor="search"> Search Your Routine: </label>
           <input className="" type="text" onChange={handleChange} />
         </form>
       </div>

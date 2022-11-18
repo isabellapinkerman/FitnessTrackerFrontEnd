@@ -19,7 +19,7 @@ const MyRoutine = ({
   return (
     <>
       <div className="rbMyRoutineCard">
-        <div id="rbRoutineTitle">Routine:</div>
+        <div id="rbRoutineTitle">Routine</div>
         <div className="rbMyRoutineSubCard">
           <div className="rbMyRoutineCardTitle">Routine Info</div>
           <div className="rbMyRoutine">
@@ -56,7 +56,7 @@ const MyRoutine = ({
           />{" "}
         </div>
         <div className="rbAllRoutineActivities">
-          <div id="rbActivityTitle">Activities:</div>
+          <div id="rbActivityTitle">Activities</div>
           <div id="rbActivitiesList">
             {activities.length ? (
               activities.map((activity) => {

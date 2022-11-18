@@ -40,7 +40,7 @@ const MyRoutineUpdate = ({ myRoutine, token, setRoutineInfo }) => {
     <>
       <div className="rbMyRoutineCardTitle">Edit Routine</div>
       <div className="rbMyRoutineUpdate">
-        <div>{message}</div>
+        <div className="rbRoutineMessage">{message}</div>
         <form className="" onSubmit={handleSubmitEditRoutine}>
           <div>
             <label htmlFor="name">Name: </label>

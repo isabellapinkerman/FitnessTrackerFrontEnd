@@ -39,7 +39,7 @@ const MyRoutineActivitiesUpdate = ({ activity, token, setActivityInfo }) => {
   return (
     <>
       <div className="rbRoutineActivityUpdateCard">
-        <div className="rbMessage">{messageCountDuration}</div>
+        <div className="rbRoutineActivityMessage">{messageCountDuration}</div>
         <form onSubmit={handleSubmitEditRoutineActivity}>
           <div id="rbSubmitForm">
             <div className="rbInput">

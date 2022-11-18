@@ -61,10 +61,9 @@ const MyRoutineAttach = ({
 
   return (
     <>
-      {" "}
       <div className="rbMyRoutineCardTitle">Attach Activity to Routine</div>
       <div className="rbMyRoutineAttach">
-        <div>{attachActivityMessage}</div>
+        <div className="rbRoutineMessage">{attachActivityMessage}</div>
         <form onSubmit={handleClickAttachActivity}>
           <select>
             {allActivities.map((activity) => {

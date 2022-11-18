@@ -4,7 +4,7 @@ import { createActivity } from "../../api";
 
 const ActivityCreate = ({ token, allActivities, setAllActivities }) => {
   const [message, setMessage] = useState(
-    "Please enter activity name and description"
+    "Please enter Activity name and description"
   );
 
   async function handleSubmit(event) {
@@ -25,19 +25,30 @@ const ActivityCreate = ({ token, allActivities, setAllActivities }) => {
 
   return (
     <>
-      <div>{message}</div>
+    <div className="createBox">
+      <div className="createBackground">
+      <div className="createMessage">{message}</div>
       <form className="registerForm" onSubmit={handleSubmit}>
+        <div className="createInput">
+          <div id="divBox">
         <label htmlFor="name">Activity Name:</label>
-        <input type="text" placeholder="Enter activity name" required></input>
+        <input className="input" type="text" placeholder="Enter activity name" required></input>
+        </div>
+        <div id="divBox">
         <label htmlFor="description">Description:</label>
-        <input type="text" placeholder="Enter description" required></input>
-        <button className="button" type="submit">
+        <input className="input" type="text" placeholder="Enter description" required></input>
+       </div>
+       </div> 
+       <button className="createButton" type="submit">
           Submit
         </button>
       </form>
+      <div className="createBox2"></div>
+      </div>
       <Link to="/activities">
         <button className="button">Back</button>
       </Link>
+      </div>
     </>
   );
 };

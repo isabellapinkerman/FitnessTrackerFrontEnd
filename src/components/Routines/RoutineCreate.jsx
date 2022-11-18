@@ -41,13 +41,13 @@ const RoutineCreate = ({ allRoutines, setAllRoutines, token }) => {
         <div className="createInput">
           <div id="divBox">
         <label htmlFor="name">Routine Name:</label>
-        <input type="text" placeholder="Enter activity name" required></input>
+        <input className="input" type="text" placeholder="Enter activity name" required></input>
         </div>
         <div id="divBox">
         <label htmlFor="goal">Goal:</label>
-        <input type="text" placeholder="Enter description" required></input>
+        <input className="input" type="text" placeholder="Enter description" required></input>
         </div>
-        <select>
+        <select className="routineSelect">
           <option>Public</option>
           <option>Private</option>
         </select>

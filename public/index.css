@@ -70,6 +70,7 @@ body {
   max-width: fill-content;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .createBox{
@@ -90,8 +91,8 @@ border-radius: 9px 0px;
 }
 
 .createBackground{
-  background-color:#bcb7b8;
-  border-radius: 10px 0px;
+  background-color:#a9a4a5;
+  border-radius: 10px 70px 70px 10px;
 }
 
 .createInput{
@@ -102,9 +103,9 @@ border-radius: 9px 0px;
 .createButton{
   background-color: rgb(188, 183, 184);
   border-radius: 5px;
-  margin: 2px;
+  margin-bottom: auto;
+  margin-top: auto;
   opacity: 0.8;
-  height: 25px;
 }
 
 .input{
@@ -125,17 +126,29 @@ border-radius: 9px 0px;
 .routineName {
   font-size: 20px;
   font-weight: bolder;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  background-color: rgb(24, 172, 19);
+  width:fit-content;
+  padding: 5px;
+  border-radius: 10px 0px;
+  border: 5px outset rgb(19, 139, 15)
 }
 
 .activityName {
   font-weight: bold;
+  background-color: rgba(19, 139, 15, 0.262);
+  border-left: 10px solid rgb(19, 139, 15);
 }
 
 .routineId {
   font-family: Copperplate;
   color: rgb(19, 139, 15);
   font-size: 17px;
+}
+
+.routineSelect{
+  width: 80px;
+  margin-left: 5px;
 }
 
 .activityId {
@@ -161,6 +174,8 @@ select {
 .activities {
   display: flex;
   flex-direction: column;
+  min-width: 900px;
+  max-width: 2000px
 }
 
 .activity {
@@ -169,6 +184,8 @@ select {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .activityEditBox {
@@ -197,12 +214,14 @@ select {
   display: flex;
 }
 
-.navButton:active {
+.navButton:active,
+.newButton:active {
   transform: scale(1, 1);
   box-shadow: 1px 1px 5px rgb(119, 246, 172);
 }
 
-.navButton:hover {
+.navButton:hover,
+.newButton:hover {
   transform: scale(1.1, 1.1);
   box-shadow: 1px 1px 5px rgb(40, 246, 125);
 }
@@ -212,6 +231,11 @@ select {
   border-radius: 5px;
   margin: 2px;
   opacity: 0.8;
+}
+
+.newButton{
+  padding: 4px;
+  margin: 10px;
 }
 
 .button,

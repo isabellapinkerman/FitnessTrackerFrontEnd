@@ -8,7 +8,7 @@ const Routines = ({ routines }) => {
       <div className="createButton">
         {localStorage.getItem("token") ? (
           <Link to={"/createRoutine"}>
-            <button>Create Routine</button>
+            <button className="newButton">Create Routine</button>
           </Link>
         ) : (
           <></>

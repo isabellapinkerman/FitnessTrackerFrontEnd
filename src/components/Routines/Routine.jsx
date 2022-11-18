@@ -26,7 +26,7 @@ const Routine = ({ routine }) => {
                   <div>
                     {activity ? (
                       <div>
-                        <div className="activityName">🎖️ {activity.name}</div>
+                        <div className="activityName">★ {activity.name}</div>
                         <div>{`Description: ${activity.description}`}</div>
                         <div className="countDuration">
                         <div className="duration">{`Duration: ${activity.duration}`}</div>

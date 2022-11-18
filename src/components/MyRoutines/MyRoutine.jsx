@@ -21,10 +21,10 @@ const MyRoutine = ({
       <div className="rbMyRoutineCard">
         <div id="rbRoutineTitle">Routine</div>
         <div className="rbMyRoutineSubCard">
-          <div className="rbMyRoutineCardTitle">Routine Info</div>
+          <div className="rbMyRoutineCardTitle">{`My Routine #${myRoutine.id}`}</div>
           <div className="rbMyRoutine">
-            <div>{`Created By: ${myRoutine.creatorName}`}</div>
-            <div>{`Name: ${routineInfo.name}`}</div>
+            <div>👤{myRoutine.creatorName}</div>
+            <div className='routineName'>{routineInfo.name}</div>
             <div>{`Goal: ${routineInfo.goal}`}</div>
             <div>
               Privacy Setting:{" "}

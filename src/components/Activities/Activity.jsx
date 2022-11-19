@@ -39,8 +39,7 @@ const Activity = ({ activity, token }) => {
   return (
     <>
       <div className="activityBox">
-        <div className="activityInfo">
-          <div className="activityId">{`Activity ${activity.id}`}</div>
+        <div className="activityInfo">          <div className="activityId">{`Activity ${activity.id}`}</div>
           <div>
             <button>🎖️ {activityEdit.name}</button>
           </div>

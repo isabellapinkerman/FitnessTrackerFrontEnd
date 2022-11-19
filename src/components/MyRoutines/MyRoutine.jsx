@@ -19,28 +19,20 @@ const MyRoutine = ({
   return (
     <>
       <div className="rbMyRoutineCard">
-        <div className="rbRoutineInfoGroup">
-          <div id="rbRoutineTitle">Routine</div>
-          <div className="rbMyRoutineSubCard">
-            <div className="rbMyRoutineCardTitle">Routine Info</div>
-            <div className="rbMyRoutine">
-              <div>{`Created By: ${myRoutine.creatorName}`}</div>
-              <div>{`Name: ${routineInfo.name}`}</div>
-              <div>{`Goal: ${routineInfo.goal}`}</div>
-              <div>
-                Privacy Setting:{" "}
-                {routineInfo.isPublic ? (
-                  <span>Public</span>
-                ) : (
-                  <span>Private</span>
-                )}
-              </div>
-              <MyRoutineDelete
-                token={token}
-                myRoutine={myRoutine}
-                myRoutines={myRoutines}
-                setMyRoutines={setMyRoutines}
-              />
+        <div id="rbRoutineTitle">Routine</div>
+        <div className="rbMyRoutineSubCard">
+        <div className="rbMyRoutineCardTitle">{`My Routine #${myRoutine.id}`}</div>
+          <div className="rbMyRoutine">
+          <div>👤{myRoutine.creatorName}</div>
+            <div className='routineName'>{`Name: ${routineInfo.name}`}</div>
+            <div>{`Goal: ${routineInfo.goal}`}</div>
+            <div>
+              Privacy Setting:{" "}
+              {routineInfo.isPublic ? (
+                <span>Public</span>
+              ) : (
+                <span>Private</span>
+              )}
             </div>
             <MyRoutineUpdate
               token={token}

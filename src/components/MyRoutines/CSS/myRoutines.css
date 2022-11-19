@@ -1,7 +1,6 @@
 .rbMyRoutineCard {
-  display: flex;
-  color: #0f7c77;
-  background-color: #d5dfe2;
+  color: white;
+  background-color: #a9a4a5;
   border: 5px solid #064e4b;
   margin: 20px;
 }
@@ -16,8 +15,9 @@
 
 .rbMyRoutineCardTitle {
   color: white;
-  background-color: #0f7c77;
+  background-color: rgb(19, 139, 15);
   padding: 5px;
+  border-radius: 0px 0px 10px;
 }
 
 .rbAllRoutineActivities {
@@ -29,8 +29,8 @@
 
 #rbRoutineTitle {
   color: white;
-  background-color: #c97e04;
-  padding: 10px 0px 10px 30px;
+  background-color: rgb(12, 83, 9);
+  padding: 20px;
   font-size: 30px;
   font-weight: 500;
   border-radius: 0px 0px 40px 40px;
@@ -39,7 +39,7 @@
 
 #rbActivityTitle {
   color: white;
-  background-color: #c9342c;
+  background-color:rgba(76, 80, 82, 0.715);
   padding: 10px 0px 10px 30px;
   font-size: 30px;
   font-weight: 500;
@@ -55,7 +55,7 @@
 .rbRoutineActivitiesCard {
   display: flex;
   flex-direction: column;
-  background-color: #0f7c77;
+  background-color: rgb(19, 139, 15);
   width: 460px;
   margin: 20px;
   border-radius: 0px 40px 0px 40px;
@@ -86,7 +86,7 @@
 }
 
 .rbRoutineActivityUpdateCard {
-  background-color: #46a5a0;
+  background-color: rgba(22, 170, 17, 0.599);
   color: white;
   align-self: flex-end;
   width: 400px;
@@ -97,8 +97,8 @@
 
 .rbRoutineActivityMessage {
   color: #c9342c;
-  background-color: #88cac7;
-  border: 2px solid white;
+  background-color: rgba(78, 198, 73, 0.884);
+  border: 2px outset white;
   border-radius: 20px 0px 20px 0px;
   padding: 10px;
   width: fit-content;
@@ -107,7 +107,7 @@
 .rbRoutineMessage {
   color: #c9342c;
   background-color: white;
-  border: 2px solid #0f7c77;
+  border: 2px solid rgb(19, 139, 15);
   border-radius: 20px 0px 20px 0px;
   padding: 10px;
   margin-bottom: 10px;
@@ -157,7 +157,7 @@
 }
 
 .rbRoutineSearch {
-  background-color: #7d1b15;
+  background-color: #252c2e;
   color: white;
   padding: 10px;
   border-top: 5px solid black;

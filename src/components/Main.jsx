@@ -5,7 +5,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { getAllActivities, getAllPublicRoutines, getUserData } from "../api";
+import { getAllActivities, getAllPublicRoutines } from "../api";
 import {
   ActivitiesSearch,
   ActivityCreate,
@@ -17,7 +17,6 @@ import {
   RoutinesSearch,
   MyRoutinesSearch,
   RoutinesByActivity,
-  Footer,
 } from "./";
 
 const Main = () => {

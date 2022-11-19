@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { updateActivity } from "../../api";
+import { updateActivity, getPublicRoutinesByActivity } from "../../api";
 import RoutinesByActivity from "./RoutinesByActivity";
 
 const Activity = ({ activity, token }) => {
@@ -8,6 +7,7 @@ const Activity = ({ activity, token }) => {
   const [message, setMessage] = useState(
     "Please enter activity name and description"
   );
+  const activityId = activity.id;
 
   async function handleSubmitEdit(event) {
     event.preventDefault();
@@ -36,15 +36,51 @@ const Activity = ({ activity, token }) => {
     }
   }
 
+  const [displayRoutines, setDisplayRoutines] = useState(false);
+  function handleClickActivity(event) {
+    if (!displayRoutines) {
+      event.preventDefault();
+      setDisplayRoutines(true);
+      fetchPublicRoutines();
+    }
+  }
+
+  function handleClickCloseDisplay(event) {
+    event.preventDefault();
+    setDisplayRoutines(false);
+  }
+
+  const [publicRoutines, setPublicRoutines] = useState([]);
+  async function fetchPublicRoutines() {
+    const publicRoutinesByActivity = await getPublicRoutinesByActivity(
+      activityId,
+      token
+    );
+    if (!publicRoutinesByActivity.error) {
+      setPublicRoutines(publicRoutinesByActivity);
+    }
+  }
+
   return (
     <>
       <div className="activityBox">
-        <div className="activityInfo">          <div className="activityId">{`Activity ${activity.id}`}</div>
+        <div className="activityInfo">
+          <div className="activityId">{`Activity ${activity.id}`}</div>
           <div>
-            <button>🎖️ {activityEdit.name}</button>
+            <button onClick={handleClickActivity}>
+              🎖️ {activityEdit.name}
+            </button>
           </div>
           <div className="activityDescription">{`Description: ${activityEdit.description}`}</div>
-          <RoutinesByActivity activityId={activity.id} token={token}/>
+          {displayRoutines ? (
+            <div>
+              <div>Routines:</div>
+              <RoutinesByActivity publicRoutines={publicRoutines} />
+              <button onClick={handleClickCloseDisplay}>Close</button>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         {localStorage.getItem("token") ? (
           <div className="activityEditBox">

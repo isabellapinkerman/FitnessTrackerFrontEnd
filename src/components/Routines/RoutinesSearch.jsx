@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routines } from "..";
 
-const RoutinesSearch = ({ allRoutines, token }) => {
+const RoutinesSearch = ({ allRoutines }) => {
   const [routines, setRoutines] = useState(allRoutines);
 
   useEffect(() => {

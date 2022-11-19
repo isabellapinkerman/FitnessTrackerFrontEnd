@@ -1,22 +1,20 @@
-import React, {useEffect, useState} from "react";
-import { getPublicRoutinesByActivity } from "../../api";
+import React from "react";
 import { RoutineByActivity } from "..";
 
-const RoutinesByActivity = ({ activityId, token }) => {
+const RoutinesByActivity = ({ publicRoutines }) => {
 
-    const [publicRoutines, setPublicRoutines] = useState([])
-
-//   async function publicRoutinesByActivity() {
-//     const fetchPublicRoutines = await getPublicRoutinesByActivity(3, token);
-//     setPublicRoutines(fetchPublicRoutines)
-//     console.log(publicRoutines)
-//   
+  console.log(publicRoutines, "this is public routines")
   return (
     <>
       <div>
-        {!publicRoutines.error ? (
+        {publicRoutines ? (
           publicRoutines.map((publicRoutine) => {
-            return <RoutineByActivity publicRoutine={publicRoutine}/>;
+            return (
+              <RoutineByActivity
+                key={`publicRoutines-${publicRoutine.id}`}
+                publicRoutine={publicRoutine}
+              />
+            );
           })
         ) : (
           <div>There are no public routines with this activity.</div>

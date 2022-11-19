@@ -28,7 +28,7 @@ export { default as RoutineCreate } from "./Routines/RoutineCreate";
 export { default as Routines } from "./Routines/Routines";
 export { default as RoutinesSearch } from "./Routines/RoutinesSearch";
 
-//C------------------COMPONENTS FOLDER-------------------
+//------------------COMPONENTS FOLDER-------------------
 
 export { default as Home } from "./Home";
 export { default as Login } from "./Login";

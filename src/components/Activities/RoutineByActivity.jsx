@@ -1,9 +1,12 @@
 import React from "react";
 
-const RoutineByActivity = () => {
+const RoutineByActivity = ({publicRoutine}) => {
+
+  console.log(publicRoutine, "this is public routine")
   return (
     <>
-      <div>This is RoutineByActivity Component</div>
+      <div>Routine Name: {publicRoutine.name}</div>
+      <div>Routine Name: {publicRoutine.name}</div>
     </>
   );
 };

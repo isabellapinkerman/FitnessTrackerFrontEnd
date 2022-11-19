@@ -5,12 +5,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import {
-  getAllActivities,
-  getAllPublicRoutines,
-  getPublicRoutinesByUser,
-  getUserData,
-} from "../api";
+import { getAllActivities, getAllPublicRoutines, getUserData } from "../api";
 import {
   ActivitiesSearch,
   ActivityCreate,
@@ -21,6 +16,7 @@ import {
   Register,
   RoutinesSearch,
   MyRoutinesSearch,
+  RoutinesByActivity,
   Footer,
 } from "./";
 
@@ -71,7 +67,13 @@ const Main = () => {
         />
         <Route
           path="myRoutines"
-          element={<MyRoutinesSearch username={username} token={token} allActivities={allActivities}/>}
+          element={
+            <MyRoutinesSearch
+              username={username}
+              token={token}
+              allActivities={allActivities}
+            />
+          }
         />
         <Route
           path="activities"
@@ -100,6 +102,11 @@ const Main = () => {
               setAllRoutines={setAllRoutines}
             />
           }
+        />
+
+        <Route
+          path="routinesByActivity"
+          element={<RoutinesByActivity token={token} />}
         />
       </Route>
     )

@@ -19,41 +19,43 @@ const MyRoutine = ({
   return (
     <>
       <div className="rbMyRoutineCard">
-        <div id="rbRoutineTitle">Routine</div>
-        <div className="rbMyRoutineSubCard">
-          <div className="rbMyRoutineCardTitle">Routine Info</div>
-          <div className="rbMyRoutine">
-            <div>{`Created By: ${myRoutine.creatorName}`}</div>
-            <div>{`Name: ${routineInfo.name}`}</div>
-            <div>{`Goal: ${routineInfo.goal}`}</div>
-            <div>
-              Privacy Setting:{" "}
-              {routineInfo.isPublic ? (
-                <span>Public</span>
-              ) : (
-                <span>Private</span>
-              )}
+        <div className="rbRoutineInfoGroup">
+          <div id="rbRoutineTitle">Routine</div>
+          <div className="rbMyRoutineSubCard">
+            <div className="rbMyRoutineCardTitle">Routine Info</div>
+            <div className="rbMyRoutine">
+              <div>{`Created By: ${myRoutine.creatorName}`}</div>
+              <div>{`Name: ${routineInfo.name}`}</div>
+              <div>{`Goal: ${routineInfo.goal}`}</div>
+              <div>
+                Privacy Setting:{" "}
+                {routineInfo.isPublic ? (
+                  <span>Public</span>
+                ) : (
+                  <span>Private</span>
+                )}
+              </div>
+              <MyRoutineDelete
+                token={token}
+                myRoutine={myRoutine}
+                myRoutines={myRoutines}
+                setMyRoutines={setMyRoutines}
+              />
             </div>
-            <MyRoutineDelete
+            <MyRoutineUpdate
               token={token}
+              routineInfo={routineInfo}
               myRoutine={myRoutine}
-              myRoutines={myRoutines}
-              setMyRoutines={setMyRoutines}
+              setRoutineInfo={setRoutineInfo}
+            />
+            <MyRoutineAttach
+              token={token}
+              routineInfo={routineInfo}
+              allActivities={allActivities}
+              activities={activities}
+              setActivities={setActivities}
             />
           </div>
-          <MyRoutineUpdate
-            token={token}
-            routineInfo={routineInfo}
-            myRoutine={myRoutine}
-            setRoutineInfo={setRoutineInfo}
-          />
-          <MyRoutineAttach
-            token={token}
-            routineInfo={routineInfo}
-            allActivities={allActivities}
-            activities={activities}
-            setActivities={setActivities}
-          />{" "}
         </div>
         <div className="rbAllRoutineActivities">
           <div id="rbActivityTitle">Activities</div>
@@ -71,7 +73,9 @@ const MyRoutine = ({
                 );
               })
             ) : (
-              <div className="">This routine has no activity.</div>
+              <div className="noActivityCard">
+                <div className="noActivity">This routine has no activity!</div>
+              </div>
             )}
           </div>
         </div>

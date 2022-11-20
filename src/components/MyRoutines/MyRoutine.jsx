@@ -16,10 +16,6 @@ const MyRoutine = ({
   const [routineInfo, setRoutineInfo] = useState(myRoutine);
   const [activities, setActivities] = useState(myRoutine.activities);
 
-  useEffect(()=>{
-    setActivities(activities)
-  },[allActivities])
-
   return (
     <>
       <div className="rbMyRoutineCard">

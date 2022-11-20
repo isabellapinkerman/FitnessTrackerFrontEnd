@@ -15,24 +15,25 @@ const RoutinesByActivity = ({ activity }) => {
       activityId,
       localStorage.getItem("token")
     );
-
     setUserRoutinesByActivity(allActivities);
   }
 
   return (
     <>
-      <>
-        <div>
-          {userRoutinesByActivity.map((activity) => {
+      <div>
+        {userRoutinesByActivity ? (
+          userRoutinesByActivity.map((routine) => {
             return (
               <RoutineByActivity
-                key={`activity-${activity.id}`}
-                activity={activity}
+                key={`routineByActivity-${routine.id}`}
+                routine={routine}
               />
             );
-          })}
-        </div>
-      </>
+          })
+        ) : (
+          <div>This activity is not in any routine.</div>
+        )}
+      </div>
     </>
   );
 };

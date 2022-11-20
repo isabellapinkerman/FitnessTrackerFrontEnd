@@ -4,6 +4,8 @@ export { default as Activities } from "./Activities/Activities";
 export { default as ActivitiesSearch } from "./Activities/ActivitiesSearch";
 export { default as Activity } from "./Activities/Activity";
 export { default as ActivityCreate } from "./Activities/ActivityCreate";
+export { default as ActivityUpdate } from "./Activities/ActivityUpdate";
+
 
 
 //---------------MY ROUTINES FOLDER---------------

@@ -29,7 +29,10 @@ export { default as RoutinesSearch } from "./Routines/RoutinesSearch";
 //---------------SEARCH ROUTINES FOLDER---------------
 
 export { default as RoutineByActivity } from "./SearchRoutines/RoutinesByActivity";
+export { default as RoutineByUser } from "./SearchRoutines/RoutineByUser";
 export { default as RoutinesByActivity } from "./SearchRoutines/RoutinesByActivity";
+export { default as RoutinesByUser } from "./SearchRoutines/RoutinesByUser";
+
 
 //------------------COMPONENTS FOLDER-------------------
 

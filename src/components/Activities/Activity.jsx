@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateActivity, getPublicRoutinesByActivity } from "../../api";
-import RoutinesByActivity from "../SearchRoutines/RoutineByActivity";
+import {RoutinesByActivity} from "../";
 
 const Activity = ({ activity, token }) => {
   const [activityEdit, setActivityEdit] = useState(activity);
@@ -72,15 +72,17 @@ const Activity = ({ activity, token }) => {
             </button>
           </div>
           <div className="activityDescription">{`Description: ${activityEdit.description}`}</div>
-          {displayRoutines ? (
-            <div>
-              <div>Routines:</div>
-              <RoutinesByActivity publicRoutines={publicRoutines} />
-              <button onClick={handleClickCloseDisplay}>Close</button>
-            </div>
-          ) : (
-            <></>
-          )}
+          <div>
+            {displayRoutines ? (
+              <div>
+                <div>Routines:</div>
+                <RoutinesByActivity publicRoutines={publicRoutines} />
+                <button onClick={handleClickCloseDisplay}>Close</button>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         {localStorage.getItem("token") ? (
           <div className="activityEditBox">

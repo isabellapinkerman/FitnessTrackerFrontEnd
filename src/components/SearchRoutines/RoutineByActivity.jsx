@@ -4,8 +4,9 @@ const RoutineByActivity = ({publicRoutine}) => {
 
   return (
     <>
-      <div>Routine Name: {publicRoutine.name}</div>
-      <div>Routine Name: {publicRoutine.name}</div>
+    <div>This is routine by activity</div>
+      {/* <div>Routine Name: {publicRoutine.name}</div>
+      <div>Routine Name: {publicRoutine.name}</div> */}
     </>
   );
 };

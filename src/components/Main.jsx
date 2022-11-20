@@ -23,7 +23,6 @@ const Main = () => {
   //-----------GET USER DATA------------------------------
 
   const token = localStorage.getItem("token");
-  const username = localStorage.getItem("username");
 
   // const [user, setUser] = useState();
   // useEffect(() => {
@@ -56,16 +55,16 @@ const Main = () => {
 
   //-----------GET ALL ROUTINES BY USER------------------------------
 
-  const [userRoutines, setUserRoutines] = useState([]);
+  // const [userRoutines, setUserRoutines] = useState([]);
 
-  useEffect(() => {
-    async function fetchAllPublicRoutinesByUser() {
-      const allRoutines = await getPublicRoutinesByUser(localStorage.getItem("username"), localStorage.getItem("token"));
+  // useEffect(() => {
+  //   async function fetchAllPublicRoutinesByUser() {
+  //     const allRoutines = await getPublicRoutinesByUser(localStorage.getItem("username"), localStorage.getItem("token"));
 
-      setUserRoutines(allRoutines);
-    }
-    fetchAllPublicRoutinesByUser();
-  }, []);
+  //     setUserRoutines(allRoutines);
+  //   }
+  //   fetchAllPublicRoutinesByUser();
+  // }, []);
 
 
 
@@ -77,16 +76,13 @@ const Main = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="routines"
-          element={<RoutinesSearch allRoutines={allRoutines} token={token} />}
+          element={<RoutinesSearch allRoutines={allRoutines} />}
         />
         <Route
           path="myRoutines"
           element={
             <MyRoutinesSearch
-              username={username}
               token={token}
-              userRoutines = {userRoutines}
-              setUserRoutines = {setUserRoutines}
               allActivities={allActivities}
             />
           }

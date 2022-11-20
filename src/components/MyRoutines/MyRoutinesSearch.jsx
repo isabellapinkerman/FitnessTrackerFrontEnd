@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MyRoutines } from "..";
-import { getPublicRoutinesByUser } from "../../api";
-import "./CSS/myRoutines.css"
+import "./CSS/myRoutines.css";
 
-const MyRoutinesSearch = ({ token, allActivities }) => {
-  const [myRoutines, setMyRoutines] = useState([]);
-
-  useEffect(() => {
-    async function fetchAllPublicRoutinesByUser() {
-      const allMyRoutines = await getPublicRoutinesByUser(localStorage.getItem("username"), localStorage.getItem("token"));
-
-      setMyRoutines(allMyRoutines);
-    }
-    fetchAllPublicRoutinesByUser();
-  }, []);
-
+const MyRoutinesSearch = ({
+  token,
+  allActivities,
+  userRoutines,
+  setUserRoutines,
+}) => {
   const handleChange = (input) => {
     input.preventDefault();
     searchRoutines(input.target.value);
@@ -22,15 +15,15 @@ const MyRoutinesSearch = ({ token, allActivities }) => {
 
   const searchRoutines = (searchValue) => {
     if (searchValue !== "") {
-      const filteredMyRoutines = myRoutines.filter((myRoutine) => {
+      const filteredMyRoutines = userRoutines.filter((myRoutine) => {
         return Object.values(myRoutine)
           .join("")
           .toLowerCase()
           .includes(searchValue.toLowerCase());
       });
-      setMyRoutines(filteredMyRoutines);
+      setUserRoutines(filteredMyRoutines);
     } else {
-      setMyRoutines(myRoutines);
+      setUserRoutines(userRoutines);
     }
   };
 
@@ -43,9 +36,9 @@ const MyRoutinesSearch = ({ token, allActivities }) => {
         </form>
       </div>
       <MyRoutines
-        myRoutines={myRoutines}
-        setMyRoutines={setMyRoutines}
         token={token}
+        userRoutines={userRoutines}
+        setUserRoutines={setUserRoutines}
         allActivities={allActivities}
       />
     </>

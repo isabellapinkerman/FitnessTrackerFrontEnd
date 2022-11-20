@@ -4,8 +4,6 @@ export { default as Activities } from "./Activities/Activities";
 export { default as ActivitiesSearch } from "./Activities/ActivitiesSearch";
 export { default as Activity } from "./Activities/Activity";
 export { default as ActivityCreate } from "./Activities/ActivityCreate";
-export { default as RoutineByActivity } from "./Activities/RoutinesByActivity";
-export { default as RoutinesByActivity } from "./Activities/RoutinesByActivity";
 
 
 //---------------MY ROUTINES FOLDER---------------
@@ -27,6 +25,11 @@ export { default as Routine } from "./Routines/Routine";
 export { default as RoutineCreate } from "./Routines/RoutineCreate";
 export { default as Routines } from "./Routines/Routines";
 export { default as RoutinesSearch } from "./Routines/RoutinesSearch";
+
+//---------------SEARCH ROUTINES FOLDER---------------
+
+export { default as RoutineByActivity } from "./SearchRoutines/RoutinesByActivity";
+export { default as RoutinesByActivity } from "./SearchRoutines/RoutinesByActivity";
 
 //------------------COMPONENTS FOLDER-------------------
 

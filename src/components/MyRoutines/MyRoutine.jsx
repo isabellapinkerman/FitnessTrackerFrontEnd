@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import {
   MyRoutineActivities,
   MyRoutineAttach,
-  MyRoutineDelete,
   MyRoutineUpdate,
 } from "..";
 
 const MyRoutine = ({
-  myRoutines,
-  setMyRoutines,
   myRoutine,
   token,
   allActivities,

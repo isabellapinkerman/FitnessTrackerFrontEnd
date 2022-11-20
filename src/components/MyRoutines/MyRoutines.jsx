@@ -1,20 +1,20 @@
 import React from "react";
 import { MyRoutine } from "..";
 
-const MyRoutines = ({ myRoutines, token, setMyRoutines, allActivities }) => {
+const MyRoutines = ({ token, userRoutines, setUserRoutines, allActivities }) => {
   return (
     <>
       <div>
         <div className="">
-          {myRoutines.length ? (
-            myRoutines.map((myRoutine) => {
+          {userRoutines.length ? (
+            userRoutines.map((myRoutine) => {
               return (
                 <MyRoutine
                   key={`myRoutine-${myRoutine.id}`}
-                  myRoutine={myRoutine}
                   token={token}
-                  myRoutines={myRoutines}
-                  setMyRoutines={setMyRoutines}
+                  myRoutine={myRoutine}
+                  userRoutines={userRoutines}
+                  setUserRoutines={setUserRoutines}
                   allActivities={allActivities}
                 />
               );

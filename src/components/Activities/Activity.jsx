@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateActivity, getPublicRoutinesByActivity } from "../../api";
-import RoutinesByActivity from "./RoutinesByActivity";
+import RoutinesByActivity from "../SearchRoutines/RoutineByActivity";
 
 const Activity = ({ activity, token }) => {
   const [activityEdit, setActivityEdit] = useState(activity);

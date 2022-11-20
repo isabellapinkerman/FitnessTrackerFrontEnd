@@ -53,21 +53,6 @@ const Main = () => {
     fetchAllActivities();
   }, []);
 
-  //-----------GET ALL ROUTINES BY USER------------------------------
-
-  // const [userRoutines, setUserRoutines] = useState([]);
-
-  // useEffect(() => {
-  //   async function fetchAllPublicRoutinesByUser() {
-  //     const allRoutines = await getPublicRoutinesByUser(localStorage.getItem("username"), localStorage.getItem("token"));
-
-  //     setUserRoutines(allRoutines);
-  //   }
-  //   fetchAllPublicRoutinesByUser();
-  // }, []);
-
-
-
   //-----------ROUTER------------------------------
 
   const router = createBrowserRouter(

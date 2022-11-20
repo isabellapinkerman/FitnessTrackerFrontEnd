@@ -7,12 +7,7 @@ const Routine = ({ routine }) => {
     if (!displayRoutines) {
       event.preventDefault();
       setDisplayRoutines(true);
-    }
-  }
-
-  function handleClickCloseDisplay(event) {
-    event.preventDefault();
-    setDisplayRoutines(false);
+    } else setDisplayRoutines(false);
   }
 
   let creatorName = routine.creatorName;
@@ -34,10 +29,12 @@ const Routine = ({ routine }) => {
             {displayRoutines ? (
               <div className="activity">
                 <div>
-                  <b>All Routines By This User:</b>
+                  <b>All Routines By: </b>
+                  <span>
+                    <b>{`${routine.creatorName}`}</b>
+                  </span>
                 </div>
                 <RoutinesByUser creatorName={creatorName} />
-                <button onClick={handleClickCloseDisplay}>Close</button>
               </div>
             ) : (
               <></>

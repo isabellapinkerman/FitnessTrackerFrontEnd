@@ -1,17 +1,43 @@
-import React from "react";
-import { RoutineByActivity } from "..";
+import React, { useState, useEffect } from "react";
+import { RoutineByActivity } from "../";
+import { getPublicRoutinesByActivity } from "../../api";
 
-const RoutinesByActivity = ({ publicRoutines }) => {
+const RoutinesByActivity = ({ activity }) => {
+  const [userRoutinesByActivity, setUserRoutinesByActivity] = useState([]);
+
+  useEffect(() => {
+    fetchPublicRoutinesByActivity();
+  }, []);
+
+  async function fetchPublicRoutinesByActivity() {
+    let activityId = activity.id;
+    let allActivities = await getPublicRoutinesByActivity(
+      activityId,
+      localStorage.getItem("token")
+    );
+
+    setUserRoutinesByActivity(allActivities);
+  }
 
   return (
     <>
-    <div>this is routines by activity</div></>
- 
+      <>
+        <div>
+          {userRoutinesByActivity.map((activity) => {
+            return (
+              <RoutineByActivity
+                key={`activity-${activity.id}`}
+                activity={activity}
+              />
+            );
+          })}
+        </div>
+      </>
+    </>
   );
 };
 
 export default RoutinesByActivity;
-
 
 // <>
 // <div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Activity from "./Activity";
 
 const Activities = ({ activities, setActivities, token }) => {
+
   return (
     <>
       <div className="createButton">

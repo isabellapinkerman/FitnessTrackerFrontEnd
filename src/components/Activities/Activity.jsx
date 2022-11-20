@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { updateActivity, getPublicRoutinesByActivity } from "../../api";
-import {RoutinesByActivity} from "../";
+import { updateActivity } from "../../api";
+import { RoutinesByActivity } from "../";
 
 const Activity = ({ activity, token }) => {
   const [activityEdit, setActivityEdit] = useState(activity);
   const [message, setMessage] = useState(
     "Please enter activity name and description"
   );
-  const activityId = activity.id;
 
   async function handleSubmitEdit(event) {
     event.preventDefault();
@@ -41,23 +40,8 @@ const Activity = ({ activity, token }) => {
     if (!displayRoutines) {
       event.preventDefault();
       setDisplayRoutines(true);
-      fetchPublicRoutines();
-    }
-  }
-
-  function handleClickCloseDisplay(event) {
-    event.preventDefault();
-    setDisplayRoutines(false);
-  }
-
-  const [publicRoutines, setPublicRoutines] = useState([]);
-  async function fetchPublicRoutines() {
-    const publicRoutinesByActivity = await getPublicRoutinesByActivity(
-      activityId,
-      token
-    );
-    if (!publicRoutinesByActivity.error) {
-      setPublicRoutines(publicRoutinesByActivity);
+    } else {
+      setDisplayRoutines(false);
     }
   }
 
@@ -76,8 +60,7 @@ const Activity = ({ activity, token }) => {
             {displayRoutines ? (
               <div>
                 <div>Routines:</div>
-                <RoutinesByActivity publicRoutines={publicRoutines} />
-                <button onClick={handleClickCloseDisplay}>Close</button>
+                <RoutinesByActivity activity={activity} />
               </div>
             ) : (
               <></>

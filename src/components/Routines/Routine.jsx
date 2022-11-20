@@ -15,7 +15,8 @@ const Routine = ({ routine }) => {
     setDisplayRoutines(false);
   }
 
-  let creatorName = routine.creatorName
+  let creatorName = routine.creatorName;
+
   return (
     <>
       <div className="routineBox">
@@ -28,13 +29,12 @@ const Routine = ({ routine }) => {
           </div>
           <div className="routineName">{routine.name}</div>
           <div className="routineGoal">{`Goal: ${routine.goal}`}</div>
+
           <div>
             {displayRoutines ? (
               <div>
-                <div>Routines:</div>
-                <RoutinesByUser
-                  creatorName={creatorName}
-                />
+                <div>All Routines By This User:</div>
+                <RoutinesByUser creatorName={creatorName} />
                 <button onClick={handleClickCloseDisplay}>Close</button>
               </div>
             ) : (

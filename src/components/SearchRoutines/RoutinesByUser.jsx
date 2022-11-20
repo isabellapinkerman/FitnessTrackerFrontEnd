@@ -3,22 +3,20 @@ import { RoutineByUser } from "../";
 import { getPublicRoutinesByUser } from "../../api";
 
 const RoutinesByUser = ({ creatorName }) => {
-
   const [userRoutines, setUserRoutines] = useState([]);
-
-  async function fetchAllPublicRoutinesByUser() {
-    const allRoutines = await getPublicRoutinesByUser(
-      creatorName,
-      localStorage.getItem("token")
-    );
-    setUserRoutines(allRoutines);
-
-    console.log(allRoutines, "this is all routines in RoutinesByUser")
-  }
 
   useEffect(() => {
     fetchAllPublicRoutinesByUser();
   }, []);
+
+  async function fetchAllPublicRoutinesByUser() {
+    let allRoutines = await getPublicRoutinesByUser(
+      creatorName,
+      localStorage.getItem("token")
+    );
+
+    setUserRoutines(allRoutines);
+  }
 
   return (
     <>

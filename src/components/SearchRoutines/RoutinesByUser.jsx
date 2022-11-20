@@ -14,7 +14,6 @@ const RoutinesByUser = ({ creatorName }) => {
       creatorName,
       localStorage.getItem("token")
     );
-
     setUserRoutines(allRoutines);
   }
 
@@ -25,7 +24,7 @@ const RoutinesByUser = ({ creatorName }) => {
           userRoutines.map((routine) => {
             return (
               <RoutineByUser
-                key={`userRoutine-${routine.id}`}
+                key={`userRoutineByUser-${routine.id}`}
                 routine={routine}
               />
             );

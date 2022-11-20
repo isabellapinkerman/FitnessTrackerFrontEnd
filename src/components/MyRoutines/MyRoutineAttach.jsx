@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { attachActivityToRoutine } from "../../api";
 
 const MyRoutineAttach = ({
-  allActivities,
-  routineInfo,
   token,
+  routineInfo,
+  allActivities,
   activities,
   setActivities,
 }) => {

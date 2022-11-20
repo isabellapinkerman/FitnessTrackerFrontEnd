@@ -7,7 +7,9 @@ const Routine = ({ routine }) => {
     if (!displayRoutines) {
       event.preventDefault();
       setDisplayRoutines(true);
-    } else setDisplayRoutines(false);
+    } else {
+      setDisplayRoutines(false);
+    }
   }
 
   let creatorName = routine.creatorName;
@@ -24,17 +26,22 @@ const Routine = ({ routine }) => {
           </div>
           <div className="routineName">{routine.name}</div>
           <div className="routineGoal">{`Goal: ${routine.goal}`}</div>
-
           <div>
-            {displayRoutines ? (
-              <div className="activity">
-                <div>
-                  <b>All Routines By: </b>
-                  <span>
-                    <b>{`${routine.creatorName}`}</b>
-                  </span>
-                </div>
-                <RoutinesByUser creatorName={creatorName} />
+            {localStorage.getItem("token") ? (
+              <div>
+                {displayRoutines ? (
+                  <div className="activity">
+                    <div>
+                      <b>All Routines By: </b>
+                      <span>
+                        <b>{`${routine.creatorName}`}</b>
+                      </span>
+                    </div>
+                    <RoutinesByUser creatorName={creatorName} />
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             ) : (
               <></>

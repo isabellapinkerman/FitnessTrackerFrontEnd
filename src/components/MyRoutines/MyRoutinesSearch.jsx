@@ -50,9 +50,9 @@ const MyRoutinesSearch = ({
       </div>
       <MyRoutines
         token={token}
+        allActivities={allActivities}
         userRoutines={userRoutines}
         setUserRoutines={setUserRoutines}
-        allActivities={allActivities}
       />
     </>
   );

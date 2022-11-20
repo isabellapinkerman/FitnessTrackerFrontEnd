@@ -1,10 +1,14 @@
 import React from "react";
 
-const RoutineByActivity = ({publicRoutine}) => {
-
+const RoutineByActivity = ({ routine }) => {
   return (
     <>
-    <div>This is routine by activity</div>
+      <div>
+        <b>Routine Name:</b> {routine.name}
+      </div>
+      <div>
+        <b>Routine Goal:</b> {routine.goal}
+      </div>
     </>
   );
 };

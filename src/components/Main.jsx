@@ -5,7 +5,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { getAllActivities, getAllPublicRoutines, getPublicRoutinesByUser } from "../api";
+import { getAllActivities, getAllPublicRoutines } from "../api";
 import {
   ActivitiesSearch,
   ActivityCreate,
@@ -23,15 +23,6 @@ const Main = () => {
   //-----------GET USER DATA------------------------------
 
   const token = localStorage.getItem("token");
-
-  // const [user, setUser] = useState();
-  // useEffect(() => {
-  //   async function fetchUserData() {
-  //     const userData = await getUserData(token);
-  //     setUser(userData);
-  //   }
-  //   fetchUserData();
-  // }, []);
 
   //-----------GET ALL ROUTINES------------------------------
   const [allRoutines, setAllRoutines] = useState([]);
@@ -66,10 +57,7 @@ const Main = () => {
         <Route
           path="myRoutines"
           element={
-            <MyRoutinesSearch
-              token={token}
-              allActivities={allActivities}
-            />
+            <MyRoutinesSearch token={token} allActivities={allActivities} />
           }
         />
         <Route

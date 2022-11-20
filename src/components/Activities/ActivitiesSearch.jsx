@@ -40,7 +40,6 @@ const ActivitiesSearch = ({ allActivities, token }) => {
           <Activities
             token={token}
             activities={activities}
-            setActivities={setActivities}
           />
         </div>
       </div>

@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Activity from "./Activity";
 
-const Activities = ({ activities, setActivities, token }) => {
-
+const Activities = ({ token, activities }) => {
   return (
     <>
       <div className="createButton">
@@ -21,9 +20,8 @@ const Activities = ({ activities, setActivities, token }) => {
             return (
               <Activity
                 key={`activity-${activity.id}`}
-                activity={activity}
-                setActivities={setActivities}
                 token={token}
+                activity={activity}
               />
             );
           })

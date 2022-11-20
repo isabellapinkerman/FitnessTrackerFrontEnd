@@ -6,8 +6,10 @@ const MyRoutineActivities = ({
   token,
   activities,
   setActivities,
+
 }) => {
-  const [activityInfo, setActivityInfo] = useState(activity);
+
+  const [activityInfo, setActivityInfo] = useState(activity)
 
   return (
     <>

@@ -2,36 +2,38 @@ import React, { useState, useEffect } from "react";
 import { RoutineByActivity } from "../";
 import { getPublicRoutinesByActivity } from "../../api";
 
-const RoutinesByActivity = ({ activity }) => {
-  const [userRoutinesByActivity, setUserRoutinesByActivity] = useState([]);
+const RoutinesByActivity = ({ activityId }) => {
+  const [userRoutines, setUserRoutines] = useState([]);
 
   useEffect(() => {
     fetchPublicRoutinesByActivity();
   }, []);
 
   async function fetchPublicRoutinesByActivity() {
-    let activityId = activity.id;
-    let allActivities = await getPublicRoutinesByActivity(
+    let allRoutines = await getPublicRoutinesByActivity(
       activityId,
       localStorage.getItem("token")
     );
-    setUserRoutinesByActivity(allActivities);
+    setUserRoutines(allRoutines);
   }
 
   return (
     <>
       <div>
-        {userRoutinesByActivity ? (
-          userRoutinesByActivity.map((routine) => {
+        {userRoutines.length ? (
+          userRoutines.map((routine) => {
             return (
               <RoutineByActivity
-                key={`routineByActivity-${routine.id}`}
+                key={`userRoutineByActivity-${routine.id}`}
                 routine={routine}
               />
             );
           })
         ) : (
-          <div>This activity is not in any routine.</div>
+          <div>
+            Info wont show for some reason. Used same method as ROUTINE tab and
+            it works there.
+          </div>
         )}
       </div>
     </>
@@ -39,20 +41,3 @@ const RoutinesByActivity = ({ activity }) => {
 };
 
 export default RoutinesByActivity;
-
-// <>
-// <div>
-//   {publicRoutines ? (
-//     publicRoutines.map((publicRoutine) => {
-//       return (
-//         <RoutineByActivity
-//           key={`publicRoutines-${publicRoutine.id}`}
-//           publicRoutine={publicRoutine}
-//         />
-//       );
-//     })
-//   ) : (
-//     <div>There are no public routines with this activity.</div>
-//   )}
-// </div>
-// </>

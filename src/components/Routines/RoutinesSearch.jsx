@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routines } from "..";
 
-const RoutinesSearch = ({ allRoutines, userRoutines, setUserRoutines }) => {
+const RoutinesSearch = ({ allRoutines }) => {
   const [routines, setRoutines] = useState(allRoutines);
 
   useEffect(() => {
@@ -30,12 +30,12 @@ const RoutinesSearch = ({ allRoutines, userRoutines, setUserRoutines }) => {
   return (
     <>
       <div className="searchBar">
-        <form >
+        <form>
           <label htmlFor="search"> Search: </label>
           <input className="searchInput" type="text" onChange={handleChange} />
         </form>
       </div>
-      <Routines routines={routines}/>
+      <Routines routines={routines} />
     </>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import { MyRoutine } from "..";
 
-const MyRoutines = ({ token, userRoutines, setUserRoutines, allActivities }) => {
+const MyRoutines = ({
+  token,
+  allActivities,
+  userRoutines,
+  setUserRoutines,
+}) => {
   return (
     <>
       <div>

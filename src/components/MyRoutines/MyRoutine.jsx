@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import {
   MyRoutineActivities,
-  MyRoutineAttach,
-  MyRoutineUpdate,
-  MyRoutineDelete
+  MyRoutineAttach, MyRoutineDelete, MyRoutineUpdate
 } from "..";
 
 const MyRoutine = ({
+  token,
   myRoutine,
   userRoutines,
   setUserRoutines,
-  token,
   allActivities,
 }) => {
   const [routineInfo, setRoutineInfo] = useState(myRoutine);
   const [activities, setActivities] = useState(myRoutine.activities);
+
 
   return (
     <>
@@ -67,6 +66,7 @@ const MyRoutine = ({
                     activity={activity}
                     activities={activities}
                     setActivities={setActivities}
+  
                   />
                 );
               })

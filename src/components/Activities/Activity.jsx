@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RoutinesByActivity, ActivityUpdate } from "../";
 
 const Activity = ({ activity, token }) => {
-  //-------------UPDATE USE STATE----------------------
-  const [activityEdit, setActivityEdit] = useState(activity);
-
-  useEffect(() => {
-    setActivityEdit(activityEdit);
-  }, [activityEdit]);
-
-  //------------FUNCTION FOR TOGGLING ROUTINE DISPLAY WHEN PRESSING ACTIVITY NAME BUTTON-----------------------
   const [displayRoutines, setDisplayRoutines] = useState(false);
   function handleClickActivity(event) {
     if (!displayRoutines) {
@@ -19,6 +11,8 @@ const Activity = ({ activity, token }) => {
       setDisplayRoutines(false);
     }
   }
+
+  const [activityEdit, setActivityEdit] = useState(activity);
 
   return (
     <>
@@ -32,12 +26,18 @@ const Activity = ({ activity, token }) => {
           </div>
           <div className="activityDescription">{`Description: ${activityEdit.description}`}</div>
           <div>
-            {displayRoutines ? (
-              <div className="activity">
-                <div>
-                  <b>Routines this activity is found in:</b>
-                </div>
-                <RoutinesByActivity activity={activity} />
+            {localStorage.getItem("token") ? (
+              <div>
+                {displayRoutines ? (
+                  <div className="activity">
+                    <div>
+                      <b>{`Routines activity "${activityEdit.name}" is found in:`}</b>
+                    </div>
+                    <RoutinesByActivity activityId={activity.id} />
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             ) : (
               <></>

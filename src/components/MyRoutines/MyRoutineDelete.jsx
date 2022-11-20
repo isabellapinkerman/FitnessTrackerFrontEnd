@@ -1,15 +1,16 @@
 import React from "react";
 import { deleteRoutine } from "../../api";
 
-const MyRoutineDelete = ({ myRoutines, myRoutine, token, setMyRoutines }) => {
+const MyRoutineDelete = ({ userRoutines, myRoutine, token, setUserRoutines }) => {
   async function handleChangeDeleteRoutine() {
     const deletedRoutine = await deleteRoutine(myRoutine.id, token);
 
     if (deletedRoutine.success) {
-      myRoutines = myRoutines.filter(
+      userRoutines = userRoutines.filter(
         (routine) => routine.id !== deletedRoutine.id
       );
-      setMyRoutines(myRoutines);
+      setUserRoutines(userRoutines);
+      console.log(`Routine with ID ${myRoutine.id} was deleted`)
     }
   }
 

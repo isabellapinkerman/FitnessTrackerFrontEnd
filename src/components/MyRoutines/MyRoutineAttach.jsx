@@ -52,7 +52,6 @@ const MyRoutineAttach = ({
         (activity) => activity.id == activityId
       );
 
-      console.log(activity);
       setActivities([...activities, activity]);
     } else {
       setAttachActivityMessage("Activity already exists in routine.");

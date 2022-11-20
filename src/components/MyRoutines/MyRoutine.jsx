@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MyRoutineActivities,
   MyRoutineAttach,
   MyRoutineUpdate,
+  MyRoutineDelete
 } from "..";
 
 const MyRoutine = ({
   myRoutine,
+  userRoutines,
+  setUserRoutines,
   token,
   allActivities,
 }) => {
   const [routineInfo, setRoutineInfo] = useState(myRoutine);
   const [activities, setActivities] = useState(myRoutine.activities);
+
+  useEffect(()=>{
+    setActivities(activities)
+  },[allActivities])
 
   return (
     <>
@@ -31,6 +38,12 @@ const MyRoutine = ({
                 <span>Private</span>
               )}
             </div>
+            <MyRoutineDelete
+                token={token}
+                myRoutine={myRoutine}
+                userRoutines={userRoutines}
+                setUserRoutines={setUserRoutines}
+              />
             <MyRoutineUpdate
               token={token}
               routineInfo={routineInfo}

@@ -1,12 +1,14 @@
 import React from "react";
 
-const RoutineByUser = ({routine}) => {
-
+const RoutineByUser = ({ routine }) => {
   return (
     <>
-      <div>Routine Name: {routine.name}</div>
-      <div>Routine Goal: {routine.goal}</div>
-
+      <div>
+        <b>Routine Name:</b> {routine.name}
+      </div>
+      <div>
+        <b>Routine Goal:</b> {routine.goal}
+      </div>
     </>
   );
 };

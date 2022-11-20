@@ -32,8 +32,10 @@ const Routine = ({ routine }) => {
 
           <div>
             {displayRoutines ? (
-              <div>
-                <div>All Routines By This User:</div>
+              <div className="activity">
+                <div>
+                  <b>All Routines By This User:</b>
+                </div>
                 <RoutinesByUser creatorName={creatorName} />
                 <button onClick={handleClickCloseDisplay}>Close</button>
               </div>
